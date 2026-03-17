@@ -1,0 +1,29 @@
+# Extraction Configuration
+extraction:
+  window_size: 50
+  relevance_threshold: 0.3
+  max_keywords_per_doc: 20
+  batch_size: 100
+
+# NLP Settings
+nlp:
+  spacy_model: "en_core_web_sm"
+  language: "english"
+  use_gpu: false
+
+# Summarization
+summarization:
+  compression_ratio: 0.3
+  max_sentences: 5
+  method: "textrank"  # textrank, bert, or hybrid
+
+# Entity Extraction
+entities:
+  types: ["PERSON", "ORG", "DATE", "GPE", "PRODUCT"]
+  min_confidence: 0.6
+
+# Output
+output:
+  formats: ["json", "csv", "txt"]
+  save_metadata: true
+  compression: false
