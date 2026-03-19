@@ -1,15 +1,19 @@
 """
-Models module containing ML-based components for keyword mining.
+Core extraction modules for keyword-based data mining.
+This package contains the fundamental classes for text processing,
+keyword extraction, context analysis, relevance scoring, and entity recognition.
 """
 
-from .text_summarizer import TextSummarizer
-from .semantic_matcher import SemanticMatcher
-from .keyword_expander import KeywordExpander
-from .confidence_scorer import ConfidenceScorer
+from .text_preprocessor import TextPreprocessor 
+from .keyword_extractor import KeywordExtractor
+from .context_extractor import KeywordContextExtractor
+from .relevance_scorer import RelevanceScorer
+from .entity_extractor import EntityExtractor
 
 __all__ = [
-    'TextSummarizer',
-    'SemanticMatcher',
-    'KeywordExpander',
-    'ConfidenceScorer'
+    'TextPreprocessor',
+    'KeywordExtractor', 
+    'KeywordContextExtractor',
+    'RelevanceScorer',
+    'EntityExtractor'
 ]
