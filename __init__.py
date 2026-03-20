@@ -24,4 +24,12 @@ __all__ = [
     'RelevanceScorer',
     'EntityExtractor',
     'DataMiner'
-]
+](venv) C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner>python -m src.pipeline.data_miner
+Traceback (most recent call last):
+  File "<frozen runpy>", line 189, in _run_module_as_main
+  File "<frozen runpy>", line 112, in _get_module_details
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\src\__init__.py", line 17, in <module>
+    from src.pipeline.data_miner import DataMiner
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\src\pipeline\__init__.py", line 5, in <module>
+    from .data_miner import DataMiner
+ImportError: cannot import name 'DataMiner' from 'src.pipeline.data_miner' (C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\src\pipeline\data_miner.py)
