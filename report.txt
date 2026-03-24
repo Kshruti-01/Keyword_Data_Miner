@@ -746,3 +746,101 @@ pip install -r requirements.txt
 python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords')"
 
 # Download spaCy model
+
+
+
+
+
+===========================================================
+EMAIL KEYWORD MINER
+============================================================
+
+Reading email from: data/sample.txt
+Looking for keywords: ['artificial intelligence', 'AI', 'machine learning', 'Genpact', "International Women's Day", 'Empower', 'auto finance', 'Economic Times', 'TalentMatch', 'inclusive leadership', 'employee', 'awards']
+INFO:src.core.text_preprocessor:Loaded stopwords for english
+INFO:src.core.entity_extractor:Loaded spaCy model: en_core_web_sm
+
+============================================================
+Starting extraction for: data/sample.txt
+============================================================
+
+1. Loading document...
+2. Cleaning and preprocessing...
+   - 32 sentences
+   - 437 words
+3. Finding keywords...
+   - Using 12 provided keywords
+
+   Keywords to analyze:
+     1. artificial intelligence
+     2. AI
+     3. machine learning
+     4. Genpact
+     5. International Women's Day
+     6. Empower
+     7. auto finance
+     8. Economic Times
+     9. TalentMatch
+     10. inclusive leadership
+     ... and 2 more
+
+4. Extracting contexts...
+   - 'AI': 6 occurrences
+   - 'Genpact': 3 occurrences
+   - 'Empower': 3 occurrences
+   - 'auto finance': 2 occurrences
+   - 'Economic Times': 1 occurrences
+   - 'TalentMatch': 1 occurrences
+   - 'inclusive leadership': 1 occurrences
+   - 'employee': 2 occurrences
+   - 'awards': 1 occurrences
+
+5. Scoring relevance...
+   - Kept 0 relevant contexts
+6. Finding named entities...
+   - Found 27 entities
+     DATE: yesterday, Late last year, every day
+     ORG: TalentMatch, the Economic Times Human Capital Awards 2026, BK
+     PERSON: Genpact, Mark, Bangalore
+7. Calculating confidence scores...
+
+   Top confidence keywords:
+
+8. Creating summaries...
+9. Packaging results...
+10. Saving results...
+
+Done! Results saved to:
+   - outputs/results_20260322_215831.json
+   - outputs/report_20260322_215831.txt
+
+============================================================
+EXTRACTION SUMMARY
+============================================================
+
+No keywords found in the email.
+   Try different keywords or check if the email contains these terms.
+
+----------------------------------------
+ENTITIES DETECTED:
+  ORG: TalentMatch, the Economic Times Human Capital Awards 2026, BK, AIdriven, LinkedIn
+  PERSON: Genpact, Mark, Bangalore, Empower
+  DATE: yesterday, Late last year, every day, 2025, Two decades
+  EVENT: This International Womens Day
+  GPE: AI, Genpact, Gurgaon
+
+----------------------------------------
+RESULTS SAVED TO:
+JSON data: outputs/results_20260322_215831.json
+Text report: outputs/report_20260322_215831.txt
+
+----------------------------------------
+QUICK STATISTICS:
+  • Total keywords searched: 12
+  • Keywords found: 0
+  • Success rate: 0%
+  • Total entities detected: 27
+
+============================================================
+Done! Check the outputs folder for detailed results.
+============================================================
