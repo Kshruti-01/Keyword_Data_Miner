@@ -844,3 +844,106 @@ QUICK STATISTICS:
 ============================================================
 Done! Check the outputs folder for detailed results.
 ============================================================
+
+
+
+
+============================================================
+Starting extraction for: data/sample.txt
+============================================================
+
+1. Loading document...
+2. Cleaning and preprocessing...
+   - 32 sentences
+   - 437 words
+3. Finding keywords...
+   - Using 12 provided keywords
+
+   Keywords to analyze:
+     1. artificial intelligence
+     2. AI
+     3. machine learning
+     4. Genpact
+     5. International Women's Day
+     6. Empower
+     7. auto finance
+     8. Economic Times
+     9. TalentMatch
+     10. inclusive leadership
+     ... and 2 more
+
+4. Extracting contexts...
+   - 'AI': 6 occurrences
+   - 'Genpact': 3 occurrences
+   - 'Empower': 3 occurrences
+   - 'auto finance': 2 occurrences
+   - 'Economic Times': 1 occurrences
+   - 'TalentMatch': 1 occurrences
+   - 'inclusive leadership': 1 occurrences
+   - 'employee': 2 occurrences
+   - 'awards': 1 occurrences
+
+5. Scoring relevance...
+   - Kept 2 relevant contexts
+6. Finding named entities...
+   - Found 27 entities
+     DATE: yesterday, Late last year, every day
+     ORG: TalentMatch, the Economic Times Human Capital Awards 2026, BK
+     PERSON: Genpact, Mark, Bangalore
+7. Calculating confidence scores...
+
+   Top confidence keywords:
+     Empower: 0.48 (1 occurrences)
+     auto finance: 0.45 (1 occurrences)
+
+8. Creating summaries...
+9. Packaging results...
+10. Saving results...
+
+Done! Results saved to:
+   - outputs/results_20260324_083908.json
+   - outputs/report_20260324_083908.txt
+
+============================================================
+EXTRACTION SUMMARY
+============================================================
+
+Found 2 out of 12 keywords
+
+KEYWORDS FOUND:
+----------------------------------------
+
+  • EMPOWER
+    Found: 1 time(s) | Confidence: 48% MEDIUM
+    Summary: Empower 2026! Starting Monday March 9 we kick off a week focused on strengthening workplace security through our Physical Security awareness campaign ...
+    Example: ...al Security awareness campaignEmpower. Keep an eye out for engaging...
+
+  • AUTO FINANCE
+    Found: 1 time(s) | Confidence: 45% MEDIUM
+    Summary: AI in auto finance is picking up speed. Our latest report Shifting gears The state of AI in automotive finance will help you fuel smarter auto finance...
+    Example: ...nce will help you fuel smarterauto financeconversations. Based on 21 exe...
+
+----------------------------------------
+ENTITIES DETECTED:
+  ORG: TalentMatch, the Economic Times Human Capital Awards 2026, BK, AIdriven, LinkedIn
+  PERSON: Genpact, Mark, Bangalore, Empower
+  DATE: yesterday, Late last year, every day, 2025, Two decades
+  EVENT: This International Womens Day
+  GPE: AI, Genpact, Gurgaon
+
+----------------------------------------
+RESULTS SAVED TO:
+JSON data: outputs/results_20260324_083908.json
+Text report: outputs/report_20260324_083908.txt
+
+----------------------------------------
+QUICK STATISTICS:
+  • Total keywords searched: 12
+  • Keywords found: 2
+  • Success rate: 16%
+  • Total keyword occurrences: 2
+  • Total entities detected: 27
+
+============================================================
+Done! Check the outputs folder for detailed results.
+============================================================
