@@ -61,22 +61,21 @@ INFO:src.connectors.outlook_connector:Connected to Outlook successfully
 Enter choice (1-4): 2
 
 3. Extracting emails...
-INFO:src.connectors.outlook_connector: Extracted 15 emails from Inbox
+INFO:src.connectors.outlook_connector:Extracted 15 emails from Inbox
 Found 15 emails
 
 4. Saving emails to files...
+INFO:src.connectors.outlook_connector:Successfully saved 15 out of 15 emails to data/outlook_emails
+   Saved 15 emails
+
+5. Initializing keyword miner...
 Traceback (most recent call last):
   File "c:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\run_outlook_extraction.py", line 209, in <module>
     main()
-  File "c:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\run_outlook_extraction.py", line 101, in main
-    saved_files = connector.save_emails_to_files(emails, output_dir="data/outlook_emails")
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "c:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\src\connectors\outlook_connector.py", line 279, in save_emails_to_files
-    with open(filepath, 'w', encoding='utf-8') as f:
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-OSError: [Errno 22] Invalid argument: 'data/outlook_emails\\Planned outage | Identity | March 21 & 22 (IST)_20260325_201103.txt'
-
-
+  File "c:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\run_outlook_extraction.py", line 106, in main
+    miner = DataMiner(relevance_threshold=0.15)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: DataMiner.__init__() got an unexpected keyword argument 'relevance_threshold'
 
 
 
