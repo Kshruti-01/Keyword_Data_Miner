@@ -142,16 +142,16 @@ class OutlookConnector:
         if subject_filter:
             items = items.Restrict(f"[Subject] LIKE '%{subject_filter}%'")
         
-        # Limit results
-        if limit:
-            items = items[:limit]
-        
-        # Extract email data
+        # FIXED: Convert COM collection to list and apply limit
         emails = []
+        count = 0
         for item in items:
+            if count >= limit:
+                break
             try:
                 email_data = self._extract_email_data(item)
                 emails.append(email_data)
+                count += 1
             except Exception as e:
                 logger.error(f"Error extracting email: {e}")
                 continue
