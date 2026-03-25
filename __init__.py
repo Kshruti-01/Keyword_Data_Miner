@@ -33,3 +33,13 @@ Connectors module for email sources (Outlook, Exchange, etc.)
 from .outlook_connector import OutlookConnector
 
 __all__ = ['OutlookConnector']
+
+
+
+"""
+Utility modules for the Keyword Data Miner
+"""
+
+from .word_generator import WordReportGenerator, create_quick_report
+
+__all__ = ['WordReportGenerator', 'create_quick_report']
