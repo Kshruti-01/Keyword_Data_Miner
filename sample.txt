@@ -45,7 +45,34 @@ Traceback (most recent call last):
 ModuleNotFoundError: No module named 'nltk'
 	 
 
+============================================================
+OUTLOOK EMAIL KEYWORD MINER
+============================================================
 
+1. Connecting to Outlook...
+INFO:src.connectors.outlook_connector:Connected to Outlook successfully
+
+2. Choose extraction mode:
+ [1] Extract recent emails (last 7 days)
+ [2] Extract unread emails only
+ [3] Search by subject
+ [4] Process all inbox emails
+
+Enter choice (1-4): 2
+
+3. Extracting emails...
+Traceback (most recent call last):
+  File "c:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\run_outlook_extraction.py", line 209, in <module>
+    main()
+  File "c:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\run_outlook_extraction.py", line 68, in main
+    emails = connector.get_emails(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\src\connectors\outlook_connector.py", line 147, in get_emails
+    items = items[:limit]
+            ~~~~~^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\win32com\client\dynamic.py", line 317, in __getitem__
+    self._oleobj_.Invoke(dispid, LCID, invkind, 1, index)
+TypeError: Objects of type 'slice' can not be converted to a COM VARIANT
 
 
 
