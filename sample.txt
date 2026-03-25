@@ -28,7 +28,21 @@ Join the fun around the office with cake, a photo booth, and a CSR activity. Plu
 
 Get ready for Empower 2026!
 Starting Monday, March 9, we kick off a week focused on strengthening workplace security through our Physical Security awareness campaign, Empower. 
-Keep an eye out for engaging online games where you can earn Cheers points! Visit the Empower page now and stay tuned for when the challenges go live. 
+Keep an eye out for engaging online games where you can earn Cheers points! Visit the Empower page now and stay tuned for when the challenges go live.
+
+pywin32 not installed. Outlook integration disabled.
+Install with: pip install pywin32
+Traceback (most recent call last):
+  File "c:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\run_outlook_extraction.py", line 11, in <module>
+    from src.pipeline.data_miner import DataMiner
+  File "c:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\src\pipeline\data_miner.py", line 11, in <module>
+    from src.core.text_preprocessor import TextPreprocessor
+  File "c:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\src\core\__init__.py", line 7, in <module>
+    from .text_preprocessor import TextPreprocessor
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\src\core\text_preprocessor.py", line 6, in <module>
+    import nltk
+ModuleNotFoundError: No module named 'nltk'
 	 
 
 
