@@ -61,19 +61,20 @@ INFO:src.connectors.outlook_connector:Connected to Outlook successfully
 Enter choice (1-4): 2
 
 3. Extracting emails...
+INFO:src.connectors.outlook_connector: Extracted 15 emails from Inbox
+Found 15 emails
+
+4. Saving emails to files...
 Traceback (most recent call last):
   File "c:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\run_outlook_extraction.py", line 209, in <module>
     main()
-  File "c:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\run_outlook_extraction.py", line 68, in main
-    emails = connector.get_emails(
-             ^^^^^^^^^^^^^^^^^^^^^
-  File "c:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\src\connectors\outlook_connector.py", line 147, in get_emails
-    items = items[:limit]
-            ~~~~~^^^^^^^^
-  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\win32com\client\dynamic.py", line 317, in __getitem__
-    self._oleobj_.Invoke(dispid, LCID, invkind, 1, index)
-TypeError: Objects of type 'slice' can not be converted to a COM VARIANT
-
+  File "c:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\run_outlook_extraction.py", line 101, in main
+    saved_files = connector.save_emails_to_files(emails, output_dir="data/outlook_emails")
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\src\connectors\outlook_connector.py", line 279, in save_emails_to_files
+    with open(filepath, 'w', encoding='utf-8') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 22] Invalid argument: 'data/outlook_emails\\Planned outage | Identity | March 21 & 22 (IST)_20260325_201103.txt'
 
 
 
