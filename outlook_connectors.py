@@ -4,6 +4,7 @@ Extracts emails directly from Microsoft Outlook.
 """
 
 import os
+import re
 import sys
 from datetime import datetime, timedelta
 from typing import List, Dict, Optional
@@ -52,9 +53,9 @@ class OutlookConnector:
             if self.profile_name:
                 self.namespace.Logon(self.profile_name)
             
-            logger.info("✅ Connected to Outlook successfully")
+            logger.info("Connected to Outlook successfully")
         except Exception as e:
-            logger.error(f"❌ Failed to connect to Outlook: {e}")
+            logger.error(f"Failed to connect to Outlook: {e}")
             self.outlook = None
     
     def get_inbox(self):
@@ -142,7 +143,7 @@ class OutlookConnector:
         if subject_filter:
             items = items.Restrict(f"[Subject] LIKE '%{subject_filter}%'")
         
-        # FIXED: Convert COM collection to list and apply limit
+        # Extract emails - iterate and apply limit
         emails = []
         count = 0
         for item in items:
@@ -264,33 +265,142 @@ class OutlookConnector:
         Args:
             emails: List of email dictionaries
             output_dir: Directory to save files
+            
+        Returns:
+            List of saved file paths
         """
+        # Create output directory if it doesn't exist
         os.makedirs(output_dir, exist_ok=True)
         
         saved_files = []
-        for email in emails:
-            # Create filename from subject and timestamp
-            subject = email['subject'][:50].replace('/', '_').replace('\\', '_')
+        
+        for i, email in enumerate(emails):
+            # Get original subject
+            original_subject = email.get('subject', '')
+            
+            # Create safe filename from subject
+            if original_subject:
+                # Clean subject for filename
+                safe_subject = original_subject[:50]  # Limit length to 50 chars
+                
+                # Remove all invalid characters for Windows filenames
+                # Invalid: \ / : * ? " < > | & % # @ ! $ ^ ( ) { } [ ] ; , . (space)
+                invalid_chars = r'[\\/*?:"<>|&%#@!$^(){}[\];,]'
+                safe_subject = re.sub(invalid_chars, '_', safe_subject)
+                
+                # Replace spaces with underscores
+                safe_subject = re.sub(r'[\s]+', '_', safe_subject)
+                
+                # Remove multiple consecutive underscores
+                safe_subject = re.sub(r'_+', '_', safe_subject)
+                
+                # Remove leading and trailing underscores and dots
+                safe_subject = safe_subject.strip('_.')
+                
+                # Ensure not empty after sanitization
+                if not safe_subject:
+                    safe_subject = f"email_{i+1}"
+            else:
+                safe_subject = f"email_{i+1}"
+            
+            # Create timestamp for uniqueness
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            filename = f"{subject}_{timestamp}.txt"
+            
+            # Create filename
+            filename = f"{safe_subject}_{timestamp}.txt"
+            
+            # Ensure filename isn't too long (Windows max is 255)
+            if len(filename) > 200:
+                safe_subject = safe_subject[:100]
+                filename = f"{safe_subject}_{timestamp}.txt"
+            
             filepath = os.path.join(output_dir, filename)
             
-            # Write email to file
-            with open(filepath, 'w', encoding='utf-8') as f:
-                f.write(f"Subject: {email['subject']}\n")
-                f.write(f"From: {email['sender_name']} <{email['sender_email']}>\n")
-                f.write(f"Date: {email['received_time']}\n")
-                f.write(f"To: {', '.join([r['email'] for r in email['recipients'] if r['type'] == 1])}\n")
-                
-                cc_list = [r['email'] for r in email['recipients'] if r['type'] == 2]
-                if cc_list:
-                    f.write(f"Cc: {', '.join(cc_list)}\n")
-                
-                f.write(f"Importance: {['Low', 'Normal', 'High'][email['importance']]}\n")
-                f.write("-" * 50 + "\n\n")
-                f.write(email['body'])
+            # Handle duplicate filenames
+            counter = 1
+            original_filepath = filepath
+            while os.path.exists(filepath):
+                name_part = original_filepath.replace('.txt', '')
+                filepath = f"{name_part}_{counter}.txt"
+                counter += 1
             
-            saved_files.append(filepath)
+            # Write email to file
+            try:
+                with open(filepath, 'w', encoding='utf-8') as f:
+                    # Write email header
+                    f.write("=" * 60 + "\n")
+                    f.write("EMAIL EXTRACTED FROM OUTLOOK\n")
+                    f.write("=" * 60 + "\n\n")
+                    
+                    f.write(f"Subject: {email.get('subject', 'No Subject')}\n")
+                    f.write(f"From: {email.get('sender_name', 'Unknown')} <{email.get('sender_email', 'unknown')}>\n")
+                    f.write(f"Date: {email.get('received_time', 'Unknown')}\n")
+                    
+                    # To recipients
+                    recipients = email.get('recipients', [])
+                    to_list = [r.get('email', '') for r in recipients if r.get('type') == 1]
+                    if to_list:
+                        f.write(f"To: {', '.join(to_list)}\n")
+                    
+                    # Cc recipients
+                    cc_list = [r.get('email', '') for r in recipients if r.get('type') == 2]
+                    if cc_list:
+                        f.write(f"Cc: {', '.join(cc_list)}\n")
+                    
+                    # Bcc recipients (if any)
+                    bcc_list = [r.get('email', '') for r in recipients if r.get('type') == 3]
+                    if bcc_list:
+                        f.write(f"Bcc: {', '.join(bcc_list)}\n")
+                    
+                    # Importance
+                    importance_map = {0: 'Low', 1: 'Normal', 2: 'High'}
+                    f.write(f"Importance: {importance_map.get(email.get('importance', 1), 'Normal')}\n")
+                    
+                    # Categories
+                    categories = email.get('categories', [])
+                    if categories:
+                        f.write(f"Categories: {', '.join(categories)}\n")
+                    
+                    # Attachments
+                    attachments = email.get('attachments', [])
+                    if attachments:
+                        f.write(f"Attachments: {', '.join([a['name'] for a in attachments])}\n")
+                    
+                    f.write("-" * 60 + "\n\n")
+                    
+                    # Write email body
+                    f.write("EMAIL BODY:\n")
+                    f.write("-" * 40 + "\n")
+                    f.write(email.get('body', 'No content'))
+                    f.write("\n\n")
+                    
+                    # Write footer
+                    f.write("-" * 60 + "\n")
+                    f.write(f"Extracted: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+                
+                saved_files.append(filepath)
+                logger.debug(f"Saved: {filename}")
+                
+            except Exception as e:
+                logger.error(f"Failed to save email: {e}")
+                
+                # Fallback - use index-based filename
+                fallback_filename = f"email_{i+1}_{timestamp}.txt"
+                fallback_filepath = os.path.join(output_dir, fallback_filename)
+                
+                try:
+                    with open(fallback_filepath, 'w', encoding='utf-8') as f:
+                        f.write(f"Subject: {email.get('subject', 'No Subject')}\n")
+                        f.write(f"From: {email.get('sender_name', 'Unknown')}\n")
+                        f.write(f"Date: {email.get('received_time', 'Unknown')}\n")
+                        f.write("-" * 40 + "\n\n")
+                        f.write(email.get('body', 'No content'))
+                    
+                    saved_files.append(fallback_filepath)
+                    logger.info(f"Saved with fallback name: {fallback_filename}")
+                    
+                except Exception as e2:
+                    logger.error(f"Completely failed to save email {i+1}: {e2}")
         
-        logger.info(f"✅ Saved {len(saved_files)} emails to {output_dir}")
+        logger.info(f"Successfully saved {len(saved_files)} out of {len(emails)} emails to {output_dir}")
         return saved_files
