@@ -24,12 +24,12 @@ __all__ = [
     'RelevanceScorer',
     'EntityExtractor',
     'DataMiner'
-]venv) C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner>python -m extraction
-Traceback (most recent call last):
-  File "<frozen runpy>", line 198, in _run_module_as_main
-  File "<frozen runpy>", line 88, in _run_code
-  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\extraction.py", line 16, in <module>
-    from src.pipeline import DataMiner
-  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\src\pipeline\__init__.py", line 5, in <module>
-    from .data_miner import DataMiner
-ImportError: cannot import name 'DataMiner' from 'src.pipeline.data_miner' (C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\src\pipeline\data_miner.py)
+]
+
+"""
+Connectors module for email sources (Outlook, Exchange, etc.)
+"""
+
+from .outlook_connector import OutlookConnector
+
+__all__ = ['OutlookConnector']
