@@ -99,14 +99,14 @@ class OutlookConnector:
                     return result
         return None
     
-    def get_emails(self, folder="Inbox", days_back=7, limit=100, 
+    def get_emails(self, folder="Inbox", days_back=90, limit=100, 
                    unread_only=False, subject_filter=None):
         """
         Extract emails from Outlook.
         
         Args:
             folder: Folder name to extract from
-            days_back: Number of days to look back
+            days_back: Number of days to look back (DEFAULT INCREASED TO 90)
             limit: Maximum number of emails to extract
             unread_only: Only extract unread emails
             subject_filter: Filter by subject contains string (case insensitive)
@@ -126,7 +126,7 @@ class OutlookConnector:
         
         print(f"Connected to folder: {folder}")
         
-        # Calculate date range
+        # Calculate date range - INCREASED TO 90 DAYS
         date_cutoff = datetime.now() - timedelta(days=days_back)
         print(f"Looking back: {days_back} days (since {date_cutoff.strftime('%Y-%m-%d')})")
         
@@ -140,8 +140,6 @@ class OutlookConnector:
         emails = []
         count = 0
         total_checked = 0
-        date_filtered = 0
-        subject_filtered = 0
         
         # Show search progress
         if subject_filter:
@@ -159,15 +157,14 @@ class OutlookConnector:
             
             # Show progress every 50 emails
             if total_checked % 50 == 0:
-                print(f"      Checked {total_checked} emails, found {count} matches...")
+                print(f"Checked {total_checked} emails, found {count} matches...")
             
             try:
                 # Get received time
                 received_time = item.ReceivedTime
                 
-                # Date filter
+                # Date filter - SKIP if older than cutoff
                 if received_time < date_cutoff:
-                    date_filtered += 1
                     continue
                 
                 # Get subject (force string conversion)
@@ -190,8 +187,14 @@ class OutlookConnector:
                 
                 # Subject filter - case insensitive
                 if subject_filter:
-                    if subject_filter.lower() not in subject.lower():
-                        subject_filtered += 1
+                    # Convert both to lowercase for comparison
+                    subject_lower = subject.lower()
+                    filter_lower = subject_filter.lower()
+                    
+                    if filter_lower in subject_lower:
+                        # Found a match!
+                        print(f"Found match #{count+1}: {subject[:60]}")
+                    else:
                         continue
                 
                 # Extract email data
@@ -199,30 +202,22 @@ class OutlookConnector:
                 emails.append(email_data)
                 count += 1
                 
-                # Show immediate match
-                if subject_filter:
-                    print(f"Found match #{count}: {subject[:60]}")
-                    
             except Exception as e:
                 logger.debug(f"Error processing email: {e}")
                 continue
         
         # Print summary
-        print(f"\n Search Summary:")
-        print(f" Total emails checked: {total_checked}")
-        print(f" Filtered by date (> {days_back} days): {date_filtered}")
-        if subject_filter:
-            print(f" Filtered by subject (no '{subject_filter}'): {subject_filtered}")
+        print(f"\nSearch Summary:")
+        print(f"Total emails checked: {total_checked}")
         print(f" MATCHES FOUND: {len(emails)}")
         
         if len(emails) == 0 and subject_filter:
-            print(f"\n  No emails found with '{subject_filter}' in subject.")
+            print(f"\n No emails found with '{subject_filter}' in subject.")
             print(f"\n   Suggestions:")
-            print(f"      1. Check spelling: is it '{subject_filter}' or something else?")
-            print(f"      2. Try searching with a different keyword")
-            print(f"      3. Increase days_back to {days_back * 2} or more")
-            print(f"      4. Check if emails are in a different folder (Sent Items, Archive)")
-            print(f"      5. Run the debug script to see what subjects actually exist")
+            print(f" 1. Increase days_back (currently {days_back})")
+            print(f" 2. Check spelling: is it '{subject_filter}' or something else?")
+            print(f" 3. Try searching in a different folder (Sent Items, Archive)")
+            print(f" 4. Run the debug script to see what subjects actually exist")
         
         logger.info(f"Extracted {len(emails)} emails from {folder}")
         return emails
@@ -276,14 +271,14 @@ class OutlookConnector:
         return attachments
     
     def search_emails(self, keywords: List[str], folder="Inbox", 
-                      days_back=30, limit=100):
+                      days_back=90, limit=100):
         """
         Search for emails containing specific keywords.
         
         Args:
             keywords: List of keywords to search for
             folder: Folder to search in
-            days_back: Days to look back
+            days_back: Days to look back (DEFAULT INCREASED TO 90)
             limit: Maximum results
             
         Returns:
