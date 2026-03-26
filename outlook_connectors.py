@@ -5,7 +5,6 @@ Extracts emails directly from Microsoft Outlook.
 
 import os
 import re
-import sys
 from datetime import datetime, timedelta
 from typing import List, Dict, Optional
 import logging
@@ -132,32 +131,59 @@ class OutlookConnector:
         items = target_folder.Items
         items.Sort("[ReceivedTime]", True)  # Sort by received time descending
         
-        # Filter by date
-        items = items.Restrict(f"[ReceivedTime] >= '{date_cutoff.strftime('%m/%d/%Y')}'")
-        
-        # Filter by unread status
-        if unread_only:
-            items = items.Restrict("[UnRead] = True")
-        
-        # Filter by subject
-        if subject_filter:
-            items = items.Restrict(f"[Subject] LIKE '%{subject_filter}%'")
-        
-        # Extract emails - iterate and apply limit
+        # Extract emails with manual filtering (more reliable than Restrict)
         emails = []
         count = 0
+        
+        # Show search progress
+        if subject_filter:
+            print(f"   Searching for emails with subject containing: '{subject_filter}'...")
+        elif unread_only:
+            print(f"   Searching for unread emails from last {days_back} days...")
+        else:
+            print(f"   Searching for emails from last {days_back} days...")
+        
         for item in items:
             if count >= limit:
                 break
+            
             try:
+                # Date filter
+                received_time = item.ReceivedTime
+                if received_time < date_cutoff:
+                    continue
+                
+                # Unread filter
+                if unread_only:
+                    try:
+                        if not item.UnRead:
+                            continue
+                    except:
+                        pass
+                
+                # Subject filter
+                if subject_filter:
+                    try:
+                        subject = str(item.Subject) if item.Subject else ""
+                        if subject_filter.lower() not in subject.lower():
+                            continue
+                    except:
+                        continue
+                
+                # Extract email data
                 email_data = self._extract_email_data(item)
                 emails.append(email_data)
                 count += 1
+                
+                # Show progress for subject search
+                if subject_filter and count % 5 == 0:
+                    print(f"      Found {count} emails so far...")
+                    
             except Exception as e:
-                logger.error(f"Error extracting email: {e}")
+                logger.debug(f"Skipping email due to error: {e}")
                 continue
         
-        logger.info(f"✅ Extracted {len(emails)} emails from {folder}")
+        logger.info(f"Extracted {len(emails)} emails from {folder}")
         return emails
     
     def _extract_email_data(self, item):
