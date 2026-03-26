@@ -326,3 +326,369 @@ Total emails checked: 320
 INFO:src.connectors.outlook_connector:Extracted 0 emails from Inbox
 Found 0 emails
    No emails found matching criteria.
+
+
+
+
+================================================================================
+DEBUG: ACTUAL SEARCH PROCESS
+================================================================================
+Connected to Outlook
+Found Inbox folder
+Looking back 90 days (since 2025-12-26)
+
+================================================================================
+CHECKING FIRST 50 EMAILS WITHIN DATE RANGE
+================================================================================
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+Error: can't compare offset-naive and offset-aware datetimes
+
+================================================================================
+SUMMARY: Found 0 emails with 'Genpact' in first 0 emails
+================================================================================
+
+================================================================================
+TESTING get_emails METHOD DIRECTLY
+================================================================================
+Connected to folder: Inbox
+Looking back: 90 days (since 2025-12-26)
+Total emails in folder: 320
+Searching for emails with 'Genpact' in subject...
+Checked 50 emails, found 0 matches...
+Checked 100 emails, found 0 matches...
+Checked 150 emails, found 0 matches...
+Checked 200 emails, found 0 matches...
+Checked 250 emails, found 0 matches...
+Checked 300 emails, found 0 matches...
+
+Search Summary:
+Total emails checked: 320
+ MATCHES FOUND: 0
+
+ No emails found with 'Genpact' in subject.
+
+   Suggestions:
+ 1. Increase days_back (currently 90)
+ 2. Check spelling: is it 'Genpact' or something else?
+ 3. Try searching in a different folder (Sent Items, Archive)
+ 4. Run the debug script to see what subjects actually exist
+
+get_emails returned: 0 emails
