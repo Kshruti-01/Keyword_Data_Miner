@@ -1292,4 +1292,3 @@ Outlook extraction complete!
  Results saved to: outputs/outlook_results
 ============================================================
 
-get_emails returned: 0 emails
