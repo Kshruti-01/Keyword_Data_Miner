@@ -79,3 +79,18 @@ TypeError: DataMiner.__init__() got an unexpected keyword argument 'relevance_th
 
 
 
+3. Extracting emails...
+Enter subject keyword: genpact
+Traceback (most recent call last):
+  File "c:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\run_outlook_extraction.py", line 209, in <module>
+    main()
+  File "c:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\run_outlook_extraction.py", line 77, in main
+    emails = connector.get_emails(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\src\connectors\outlook_connector.py", line 144, in get_emails
+    items = items.Restrict(f"[Subject] LIKE '%{subject_filter}%'")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<COMObject Restrict>", line 2, in Restrict
+pywintypes.com_error: (-2147352567, 'Exception occurred.', (4096, 'Microsoft Outlook', 'Condition is not valid.', None, 0, -2147352567), None)
+
+
