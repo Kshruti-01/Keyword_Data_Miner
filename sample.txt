@@ -280,3 +280,49 @@ the emails might be:
   2. In a different folder (Sent Items, Archive, etc.)
   3. Not containing 'Genpact' in the subject (maybe only in body)
 ================================================================================
+
+
+
+
+============================================================
+OUTLOOK EMAIL KEYWORD MINER
+============================================================
+
+1. Connecting to Outlook...
+INFO:src.connectors.outlook_connector:Connected to Outlook successfully
+
+2. Choose extraction mode:
+ [1] Extract recent emails (last 7 days)
+ [2] Extract unread emails only
+ [3] Search by subject
+ [4] Process all inbox emails
+
+Enter choice (1-4): 3
+
+3. Extracting emails...
+Enter subject keyword: Genpact
+Connected to folder: Inbox
+Looking back: 90 days (since 2025-12-26)
+Total emails in folder: 320
+Searching for emails with 'Genpact' in subject...
+Checked 50 emails, found 0 matches...
+Checked 100 emails, found 0 matches...
+Checked 150 emails, found 0 matches...
+Checked 200 emails, found 0 matches...
+Checked 250 emails, found 0 matches...
+Checked 300 emails, found 0 matches...
+
+Search Summary:
+Total emails checked: 320
+ MATCHES FOUND: 0
+
+ No emails found with 'Genpact' in subject.
+
+   Suggestions:
+ 1. Increase days_back (currently 90)
+ 2. Check spelling: is it 'Genpact' or something else?
+ 3. Try searching in a different folder (Sent Items, Archive)
+ 4. Run the debug script to see what subjects actually exist
+INFO:src.connectors.outlook_connector:Extracted 0 emails from Inbox
+Found 0 emails
+   No emails found matching criteria.
