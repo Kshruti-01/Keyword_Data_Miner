@@ -1,34 +1,4 @@
-this is the sample folder for testing
 
-Our Global All-Employee Townhall yesterday was packed with bold moves and inspiring stories. 
-Missed it (or want a quick refresher)?  We’ve got you covered. Watch the 3-minute recap here. It’s got all the highlights you need to know. 
-We’d love to hear what you thought. Click here to tell us what worked and what can improve. 
-
-Our Learning, Hiring, and TalentMatch teams turned insight into impact, earning top three finalist recognition at the Economic Times Human Capital Awards 2026. 
-From AI-powered learning to smarter hiring and skills-first mobility, see how they’re on it. Read more here. here
-
-A moment to listen. Late last year, thousands of our people shared their insights on how our culture shows up every day. 
-Their voices reflected trust, clarity, and the courage to speak up, while also pointing to where we can do more
-
-International Women's Day
-BK shares a personal message on why inclusive leadership matters, and how everyday actions help build a stronger, more inclusive Genpact. 
-Click here to watch the video and hear BK’s message in celebration of International Women’s Day.
-
-AI in auto finance is picking up speed. Our latest report, Shifting gears: The state of AI in automotive finance, will help you fuel smarter auto finance conversations.
-Based on 21 executive interviews with senior industry leaders and insights from the Car Buyer Monitor 2025, it explores how AI is already delivering real value in this sector, why trust and transparency are critical to scaling it, and how the industry is accelerating toward fully AI-driven operating models. 
-Read it and help spread the word by sharing this LinkedIn post.
-
-Two decades. Two generations. One inspiring story
-This International Women’s Day, we celebrate Poonam Adhana, who’s been with Genpact for 25 years, and has broken barriers in employee transportation, championed women-led mobility, and advanced inclusion in a traditionally male-dominated field. 
-Her legacy now spans generations; today, her daughter is also building a career in Genpact. 
-
-On it for our women!
-Mark your calendars for March 12. We’re celebrating International Women’s Day in true on it style at our Phase V office in Gurgaon and in Bangalore.
-Join the fun around the office with cake, a photo booth, and a CSR activity. Plus, it’s your chance to grab an on it pin, and you could win exclusive swag! Stay tuned!
-
-Get ready for Empower 2026!
-Starting Monday, March 9, we kick off a week focused on strengthening workplace security through our Physical Security awareness campaign, Empower. 
-Keep an eye out for engaging online games where you can earn Cheers points! Visit the Empower page now and stay tuned for when the challenges go live.
 
 pywin32 not installed. Outlook integration disabled.
 Install with: pip install pywin32
@@ -146,3 +116,167 @@ Searching for emails with 'Genpact' in subject...
 INFO:src.connectors.outlook_connector:Extracted 0 emails from Inbox
 Found 0 emails
    No emails found matching criteria.
+
+
+================================================================================
+SHOWING ALL EMAIL SUBJECTS IN INBOX
+================================================================================
+Connected to Outlook
+Found Inbox folder
+
+Total emails in inbox: 320
+--------------------------------------------------------------------------------
+1. Genpact project update-march 2026
+2. FW: Strategic Update on Genpact's ServiceNow CPL 2026 Performance: (Ma
+3. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282    
+4. Planned outage | Oracle ERP system | March 26 (IST)
+5. This month’s scams look more real than ever
+6. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282    
+7. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282
+8. Join us today | Workday Activation Week: Employee session Slot 1!
+9. Save it or lose it: Outlook cleanup starts soon
+10. Dutta, Soham is trying to reach you in Microsoft Teams
+11. Pricing Training
+12. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282
+13. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282   
+14. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282   
+15. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282
+16. Planned outage | Identity | March 21 & 22 (IST)
+17. FW: Got HR, I&L, or legal questions? Skip emails. Just ask Scout.        
+18. FW: Empower 2026 starts Monday: Play, protect, earn Cheers
+19. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282   
+20. RE: Intern Pulse Check-In | Connect
+21. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282
+22. Workday Activation Week: Employee session Slot 2!
+23. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282
+24. Basic Compliance training for Shruti
+25. Unauthorized Software Use
+26. Unauthorized Software Use
+27. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282   
+28. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282
+29. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282   
+30. Canceled: Basic Compliance training for Shruti
+31. test attachement
+32. project files
+33. Your Friday brief: The refreshed Genpact Now is here!
+34. Planned outage | Scout | March 14 (IST)
+35. Planned outage | Identity | March 21 & 22 (IST)
+36. RE: Intern Pulse Check-In | Connect
+37. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282   
+38. The Art of Storytelling at MARS
+39. Ghosh, Diya is trying to reach you in Microsoft Teams
+40. Planned outage | Oracle ERP system | March 14 to 15 (IST)
+41. Planned outage | iLearn & iPerform | March 14 (IST)
+42. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282   
+43. Rate your experience | RITM5300058
+44. Request Item RITM5300058 comments added -- Use this Request for any li   
+45. Catalog Task SCTASK6817027 has been assigned to group CORP.TECH.TOS.US   
+46. Services impacted | Oracle HRMS & Finance | March 11 (IST)
+47. Important deadlines | Workday transition - For employees
+48. [Reminder 1] Your ticket needs attention/action | RITM5300058
+49. Request Item RITM5300058 comments added -- Use this Request for any li   
+50. Nolasco, Selene is trying to reach you in Microsoft Teams
+51. Catalog Task SCTASK6817027 has been assigned to group CORP.TECH.TOS.US   
+52. Request Item RITM5300058 comments added -- Use this Request for any li   
+53. Catalog Task SCTASK6817027 has been assigned to group CORP.TECH.TOS.AP
+54. Catalog Task SCTASK6817027 has been assigned to group CORP.TECH.TIS.Gl   
+55. Catalog Task SCTASK6817027 has been assigned to group CORP.TECH.TOS.AP
+56. Catalog Task SCTASK6817018 has been assigned to group CORP.TECH.TIS.Gl   
+57. Request Item RITM5300058 comments added -- Use this Request for any li   
+58. Catalog Task SCTASK6817027 has been assigned to group
+59. Catalog Task SCTASK6817018 has been assigned to group CORP.TECH.TIS.Gl   
+60. Request Item RITM5300058 comments added -- Use this Request for any li   
+61. Catalog Task SCTASK6817018 has been assigned to group
+62. Request Item RITM5300058 comments added -- Use this Request for any li   
+63. Request Item RITM5300058 comments added -- Use this Request for any li   
+64. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282
+65. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282   
+66. Empower 2026 | Stronger security starts with you.
+67. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282
+68. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282   
+69. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282
+70. Empower 2026 starts Monday: Play, protect, earn Cheers
+71. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282
+72. Pricing Training
+73. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282
+74. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282   
+75. [No Subject]
+76. PPT update
+77. images
+78. dataiku flowchart
+79. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282   
+80. Bhar, Anukana is trying to reach you in Microsoft Teams
+81. Request Item RITM5262502 comments added -- Addition Or Removal To Non-   
+82. Your ticket has been completed | REQ5305953
+83. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282   
+84. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282
+85. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282   
+86. Got HR, I&L, or legal questions? Skip emails. Just ask Scout.
+87. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282
+88. Your ticket has been logged and awaiting approval | RITM5300058
+89. Today’s Townhall = you’ll want to be there
+90. Intern Pulse Check-In | Connect
+91. Important action required | Complete your Workday updates
+92. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282
+93. AI scams are getting smarter
+94. Quick Connect
+95. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282   
+96. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282   
+97. They chose Genpact. They stayed. Why?
+98. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282
+99. Reminder: ESPP Enrollment Period Currently Open
+100. Reminder: ESPP Enrollment Period Currently Open
+
+================================================================================
+Showing first 100 emails
+================================================================================
+
+Checking for keywords in subjects:
+------------------------------------------------------------
+
+'Genpact': Found in 4 emails
+   - Genpact project update-march 2026
+   - FW: Strategic Update on Genpact's ServiceNow CPL 2026 Perfor
+   - Your Friday brief: The refreshed Genpact Now is here!
+
+'genpact': Found in 4 emails
+   - Genpact project update-march 2026
+   - FW: Strategic Update on Genpact's ServiceNow CPL 2026 Perfor
+   - Your Friday brief: The refreshed Genpact Now is here!
+
+'GENPACT': Found in 4 emails
+   - Genpact project update-march 2026
+   - FW: Strategic Update on Genpact's ServiceNow CPL 2026 Perfor
+   - Your Friday brief: The refreshed Genpact Now is here!
+
+'Genpact': Found in 4 emails
+   - Genpact project update-march 2026
+   - FW: Strategic Update on Genpact's ServiceNow CPL 2026 Perfor
+   - Your Friday brief: The refreshed Genpact Now is here!
+
+'meeting': NOT found in any of the first 100 emails
+
+'project': Found in 9 emails
+   - Genpact project update-march 2026
+   - project files
+   - Request Item RITM5300058 comments added -- Use this Request
+
+'update': Found in 4 emails
+   - Genpact project update-march 2026
+   - FW: Strategic Update on Genpact's ServiceNow CPL 2026 Perfor
+   - PPT update
+
+'report': NOT found in any of the first 100 emails
+
+'urgent': NOT found in any of the first 100 emails
+
+'deadline': Found in 1 emails
+   - Important deadlines | Workday transition - For employees
+
+================================================================================
+If you're looking for 'Genpact' but don't see it in the subjects,
+the emails might be:
+  1. Older than 100 emails (scroll further back)
+  2. In a different folder (Sent Items, Archive, etc.)
+  3. Not containing 'Genpact' in the subject (maybe only in body)
+================================================================================
