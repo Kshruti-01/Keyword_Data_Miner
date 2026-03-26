@@ -328,367 +328,968 @@ Found 0 emails
    No emails found matching criteria.
 
 
+============================================================
+Starting extraction for: data/outlook_emails\Request_Item_RITM5266755_comments_added_--_Request_20260326_181717_1.txt
+============================================================
 
+1. Loading document...
+2. Cleaning and preprocessing...
+   - 8 sentences
+   - 211 words
+3. Finding keywords...
+   - Using 10 provided keywords
 
-================================================================================
-DEBUG: ACTUAL SEARCH PROCESS
-================================================================================
-Connected to Outlook
-Found Inbox folder
-Looking back 90 days (since 2025-12-26)
+   Keywords to analyze:
+     1. artificial intelligence
+     2. AI
+     3. machine learning
+     4. Genpact
+     5. International Women's Day
+     6. Empower
+     7. auto finance
+     8. Economic Times
+     9. urgent
+     10. deadline
 
-================================================================================
-CHECKING FIRST 50 EMAILS WITHIN DATE RANGE
-================================================================================
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
-Error: can't compare offset-naive and offset-aware datetimes
+4. Extracting contexts...
+   - 'AI': 9 occurrences
+   - 'Genpact': 10 occurrences
 
-================================================================================
-SUMMARY: Found 0 emails with 'Genpact' in first 0 emails
-================================================================================
+5. Scoring relevance...
+   - Kept 6 relevant contexts
+6. Finding named entities...
+   - Found 0 entities
+7. Calculating confidence scores...
 
-================================================================================
-TESTING get_emails METHOD DIRECTLY
-================================================================================
-Connected to folder: Inbox
-Looking back: 90 days (since 2025-12-26)
-Total emails in folder: 320
-Searching for emails with 'Genpact' in subject...
-Checked 50 emails, found 0 matches...
-Checked 100 emails, found 0 matches...
-Checked 150 emails, found 0 matches...
-Checked 200 emails, found 0 matches...
-Checked 250 emails, found 0 matches...
-Checked 300 emails, found 0 matches...
+   Top confidence keywords:
+     Genpact: 0.55 (4 occurrences)
+     AI: 0.49 (2 occurrences)
 
-Search Summary:
-Total emails checked: 320
- MATCHES FOUND: 0
+8. Creating summaries...
+9. Packaging results...
+10. Saving results...
 
- No emails found with 'Genpact' in subject.
+Done! Results saved to:
+   - outputs/outlook_results/email_18/results_20260326_181718.json
+   - outputs/outlook_results/email_18/report_20260326_181718.txt
+Found 2 keywords
+ - AI: 0.49%
+ - Genpact: 0.55%
 
-   Suggestions:
- 1. Increase days_back (currently 90)
- 2. Check spelling: is it 'Genpact' or something else?
- 3. Try searching in a different folder (Sent Items, Archive)
- 4. Run the debug script to see what subjects actually exist
+   [19/36] Processing: Request_Item_RITM5266755_comments_added_--_Request_20260326_181717_2.txt
+
+============================================================
+Starting extraction for: data/outlook_emails\Request_Item_RITM5266755_comments_added_--_Request_20260326_181717_2.txt
+============================================================
+
+1. Loading document...
+2. Cleaning and preprocessing...
+   - 8 sentences
+   - 211 words
+3. Finding keywords...
+   - Using 10 provided keywords
+
+   Keywords to analyze:
+     1. artificial intelligence
+     2. AI
+     3. machine learning
+     4. Genpact
+     5. International Women's Day
+     6. Empower
+     7. auto finance
+     8. Economic Times
+     9. urgent
+     10. deadline
+
+4. Extracting contexts...
+   - 'AI': 9 occurrences
+   - 'Genpact': 10 occurrences
+
+5. Scoring relevance...
+   - Kept 6 relevant contexts
+6. Finding named entities...
+   - Found 0 entities
+7. Calculating confidence scores...
+
+   Top confidence keywords:
+     Genpact: 0.55 (4 occurrences)
+     AI: 0.49 (2 occurrences)
+
+8. Creating summaries...
+9. Packaging results...
+10. Saving results...
+
+Done! Results saved to:
+   - outputs/outlook_results/email_19/results_20260326_181718.json
+   - outputs/outlook_results/email_19/report_20260326_181718.txt
+Found 2 keywords
+ - AI: 0.49%
+ - Genpact: 0.55%
+
+   [20/36] Processing: Request_Item_RITM5266755_comments_added_--_Request_20260326_181717_3.txt
+
+============================================================
+Starting extraction for: data/outlook_emails\Request_Item_RITM5266755_comments_added_--_Request_20260326_181717_3.txt
+============================================================
+
+1. Loading document...
+2. Cleaning and preprocessing...
+   - 4 sentences
+   - 151 words
+3. Finding keywords...
+   - Using 10 provided keywords
+
+   Keywords to analyze:
+     1. artificial intelligence
+     2. AI
+     3. machine learning
+     4. Genpact
+     5. International Women's Day
+     6. Empower
+     7. auto finance
+     8. Economic Times
+     9. urgent
+     10. deadline
+
+4. Extracting contexts...
+   - 'AI': 7 occurrences
+   - 'Genpact': 11 occurrences
+
+5. Scoring relevance...
+   - Kept 7 relevant contexts
+6. Finding named entities...
+   - Found 0 entities
+7. Calculating confidence scores...
+
+   Top confidence keywords:
+     Genpact: 0.58 (5 occurrences)
+     AI: 0.49 (2 occurrences)
+
+8. Creating summaries...
+9. Packaging results...
+10. Saving results...
+
+Done! Results saved to:
+   - outputs/outlook_results/email_20/results_20260326_181718.json
+   - outputs/outlook_results/email_20/report_20260326_181718.txt
+Found 2 keywords
+ - AI: 0.49%
+ - Genpact: 0.58%
+
+   [21/36] Processing: Request_Item_RITM5266755_comments_added_--_Request_20260326_181717_4.txt
+
+============================================================
+Starting extraction for: data/outlook_emails\Request_Item_RITM5266755_comments_added_--_Request_20260326_181717_4.txt
+============================================================
+
+1. Loading document...
+2. Cleaning and preprocessing...
+   - 3 sentences
+   - 145 words
+3. Finding keywords...
+   - Using 10 provided keywords
+
+   Keywords to analyze:
+     1. artificial intelligence
+     2. AI
+     3. machine learning
+     4. Genpact
+     5. International Women's Day
+     6. Empower
+     7. auto finance
+     8. Economic Times
+     9. urgent
+     10. deadline
+
+4. Extracting contexts...
+   - 'AI': 8 occurrences
+   - 'Genpact': 11 occurrences
+
+5. Scoring relevance...
+   - Kept 7 relevant contexts
+6. Finding named entities...
+   - Found 0 entities
+7. Calculating confidence scores...
+
+   Top confidence keywords:
+     Genpact: 0.55 (4 occurrences)
+     AI: 0.52 (3 occurrences)
+
+8. Creating summaries...
+9. Packaging results...
+10. Saving results...
+
+Done! Results saved to:
+   - outputs/outlook_results/email_21/results_20260326_181718.json
+   - outputs/outlook_results/email_21/report_20260326_181718.txt
+Found 2 keywords
+ - AI: 0.52%
+ - Genpact: 0.55%
+
+   [22/36] Processing: Request_Item_RITM5262493_comments_added_--_Request_20260326_181717.txt
+
+============================================================
+Starting extraction for: data/outlook_emails\Request_Item_RITM5262493_comments_added_--_Request_20260326_181717.txt
+============================================================
+
+1. Loading document...
+2. Cleaning and preprocessing...
+   - 23 sentences
+   - 511 words
+3. Finding keywords...
+   - Using 10 provided keywords
+
+   Keywords to analyze:
+     1. artificial intelligence
+     2. AI
+     3. machine learning
+     4. Genpact
+     5. International Women's Day
+     6. Empower
+     7. auto finance
+     8. Economic Times
+     9. urgent
+     10. deadline
+
+4. Extracting contexts...
+   - 'AI': 20 occurrences
+   - 'Genpact': 17 occurrences
+
+5. Scoring relevance...
+   - Kept 12 relevant contexts
+6. Finding named entities...
+   - Found 0 entities
+7. Calculating confidence scores...
+
+   Top confidence keywords:
+     Genpact: 0.58 (7 occurrences)
+     AI: 0.57 (5 occurrences)
+
+8. Creating summaries...
+9. Packaging results...
+10. Saving results...
+
+Done! Results saved to:
+   - outputs/outlook_results/email_22/results_20260326_181718.json
+   - outputs/outlook_results/email_22/report_20260326_181718.txt
+Found 2 keywords
+ - AI: 0.57%
+ - Genpact: 0.58%
+
+   [23/36] Processing: Request_Item_RITM5262493_comments_added_--_Request_20260326_181717_1.txt
+
+============================================================
+Starting extraction for: data/outlook_emails\Request_Item_RITM5262493_comments_added_--_Request_20260326_181717_1.txt
+============================================================
+
+1. Loading document...
+2. Cleaning and preprocessing...
+   - 18 sentences
+   - 419 words
+3. Finding keywords...
+   - Using 10 provided keywords
+
+   Keywords to analyze:
+     1. artificial intelligence
+     2. AI
+     3. machine learning
+     4. Genpact
+     5. International Women's Day
+     6. Empower
+     7. auto finance
+     8. Economic Times
+     9. urgent
+     10. deadline
+
+4. Extracting contexts...
+   - 'AI': 16 occurrences
+   - 'Genpact': 13 occurrences
+
+5. Scoring relevance...
+   - Kept 8 relevant contexts
+6. Finding named entities...
+   - Found 0 entities
+7. Calculating confidence scores...
+
+   Top confidence keywords:
+     Genpact: 0.57 (5 occurrences)
+     AI: 0.52 (3 occurrences)
+
+8. Creating summaries...
+9. Packaging results...
+10. Saving results...
+
+Done! Results saved to:
+   - outputs/outlook_results/email_23/results_20260326_181718.json
+   - outputs/outlook_results/email_23/report_20260326_181718.txt
+Found 2 keywords
+ - AI: 0.52%
+ - Genpact: 0.57%
+
+   [24/36] Processing: Request_Item_RITM5262493_comments_added_--_Request_20260326_181717_2.txt
+
+============================================================
+Starting extraction for: data/outlook_emails\Request_Item_RITM5262493_comments_added_--_Request_20260326_181717_2.txt
+============================================================
+
+1. Loading document...
+2. Cleaning and preprocessing...
+   - 10 sentences
+   - 273 words
+3. Finding keywords...
+   - Using 10 provided keywords
+
+   Keywords to analyze:
+     1. artificial intelligence
+     2. AI
+     3. machine learning
+     4. Genpact
+     5. International Women's Day
+     6. Empower
+     7. auto finance
+     8. Economic Times
+     9. urgent
+     10. deadline
+
+4. Extracting contexts...
+   - 'AI': 12 occurrences
+   - 'Genpact': 13 occurrences
+
+5. Scoring relevance...
+   - Kept 8 relevant contexts
+6. Finding named entities...
+   - Found 0 entities
+7. Calculating confidence scores...
+
+   Top confidence keywords:
+     Genpact: 0.57 (5 occurrences)
+     AI: 0.52 (3 occurrences)
+
+8. Creating summaries...
+9. Packaging results...
+10. Saving results...
+
+Done! Results saved to:
+   - outputs/outlook_results/email_24/results_20260326_181718.json
+   - outputs/outlook_results/email_24/report_20260326_181718.txt
+Found 2 keywords
+ - AI: 0.52%
+ - Genpact: 0.57%
+
+   [25/36] Processing: Request_Item_RITM5262493_comments_added_--_Request_20260326_181717_3.txt
+
+============================================================
+Starting extraction for: data/outlook_emails\Request_Item_RITM5262493_comments_added_--_Request_20260326_181717_3.txt
+============================================================
+
+1. Loading document...
+2. Cleaning and preprocessing...
+   - 7 sentences
+   - 217 words
+3. Finding keywords...
+   - Using 10 provided keywords
+
+   Keywords to analyze:
+     1. artificial intelligence
+     2. AI
+     3. machine learning
+     4. Genpact
+     5. International Women's Day
+     6. Empower
+     7. auto finance
+     8. Economic Times
+     9. urgent
+     10. deadline
+
+4. Extracting contexts...
+   - 'AI': 9 occurrences
+   - 'Genpact': 9 occurrences
+
+5. Scoring relevance...
+   - Kept 5 relevant contexts
+6. Finding named entities...
+   - Found 0 entities
+7. Calculating confidence scores...
+
+   Top confidence keywords:
+     Genpact: 0.53 (3 occurrences)
+     AI: 0.49 (2 occurrences)
+
+8. Creating summaries...
+9. Packaging results...
+10. Saving results...
+
+Done! Results saved to:
+   - outputs/outlook_results/email_25/results_20260326_181718.json
+   - outputs/outlook_results/email_25/report_20260326_181718.txt
+Found 2 keywords
+ - AI: 0.49%
+ - Genpact: 0.53%
+
+   [26/36] Processing: Request_Item_RITM5262493_comments_added_--_Request_20260326_181717_4.txt
+
+============================================================
+Starting extraction for: data/outlook_emails\Request_Item_RITM5262493_comments_added_--_Request_20260326_181717_4.txt
+============================================================
+
+1. Loading document...
+2. Cleaning and preprocessing...
+   - 7 sentences
+   - 217 words
+3. Finding keywords...
+   - Using 10 provided keywords
+
+   Keywords to analyze:
+     1. artificial intelligence
+     2. AI
+     3. machine learning
+     4. Genpact
+     5. International Women's Day
+     6. Empower
+     7. auto finance
+     8. Economic Times
+     9. urgent
+     10. deadline
+
+4. Extracting contexts...
+   - 'AI': 9 occurrences
+   - 'Genpact': 9 occurrences
+
+5. Scoring relevance...
+   - Kept 5 relevant contexts
+6. Finding named entities...
+   - Found 0 entities
+7. Calculating confidence scores...
+
+   Top confidence keywords:
+     Genpact: 0.53 (3 occurrences)
+     AI: 0.49 (2 occurrences)
+
+8. Creating summaries...
+9. Packaging results...
+10. Saving results...
+
+Done! Results saved to:
+   - outputs/outlook_results/email_26/results_20260326_181718.json
+   - outputs/outlook_results/email_26/report_20260326_181718.txt
+Found 2 keywords
+ - AI: 0.49%
+ - Genpact: 0.53%
+
+   [27/36] Processing: Request_Item_RITM5262493_comments_added_--_Request_20260326_181717_5.txt
+
+============================================================
+Starting extraction for: data/outlook_emails\Request_Item_RITM5262493_comments_added_--_Request_20260326_181717_5.txt
+============================================================
+
+1. Loading document...
+2. Cleaning and preprocessing...
+   - 5 sentences
+   - 196 words
+3. Finding keywords...
+   - Using 10 provided keywords
+
+   Keywords to analyze:
+     1. artificial intelligence
+     2. AI
+     3. machine learning
+     4. Genpact
+     5. International Women's Day
+     6. Empower
+     7. auto finance
+     8. Economic Times
+     9. urgent
+     10. deadline
+
+4. Extracting contexts...
+   - 'AI': 9 occurrences
+   - 'Genpact': 9 occurrences
+
+5. Scoring relevance...
+   - Kept 5 relevant contexts
+6. Finding named entities...
+   - Found 0 entities
+7. Calculating confidence scores...
+
+   Top confidence keywords:
+     Genpact: 0.53 (3 occurrences)
+     AI: 0.49 (2 occurrences)
+
+8. Creating summaries...
+9. Packaging results...
+10. Saving results...
+
+Done! Results saved to:
+   - outputs/outlook_results/email_27/results_20260326_181718.json
+   - outputs/outlook_results/email_27/report_20260326_181718.txt
+Found 2 keywords
+ - AI: 0.49%
+ - Genpact: 0.53%
+
+   [28/36] Processing: Request_Item_RITM5262493_comments_added_--_Request_20260326_181717_6.txt
+
+============================================================
+Starting extraction for: data/outlook_emails\Request_Item_RITM5262493_comments_added_--_Request_20260326_181717_6.txt
+============================================================
+
+1. Loading document...
+2. Cleaning and preprocessing...
+   - 5 sentences
+   - 196 words
+3. Finding keywords...
+   - Using 10 provided keywords
+
+   Keywords to analyze:
+     1. artificial intelligence
+     2. AI
+     3. machine learning
+     4. Genpact
+     5. International Women's Day
+     6. Empower
+     7. auto finance
+     8. Economic Times
+     9. urgent
+     10. deadline
+
+4. Extracting contexts...
+   - 'AI': 9 occurrences
+   - 'Genpact': 9 occurrences
+
+5. Scoring relevance...
+   - Kept 5 relevant contexts
+6. Finding named entities...
+   - Found 0 entities
+7. Calculating confidence scores...
+
+   Top confidence keywords:
+     Genpact: 0.53 (3 occurrences)
+     AI: 0.49 (2 occurrences)
+
+8. Creating summaries...
+9. Packaging results...
+10. Saving results...
+
+Done! Results saved to:
+   - outputs/outlook_results/email_28/results_20260326_181718.json
+   - outputs/outlook_results/email_28/report_20260326_181718.txt
+Found 2 keywords
+ - AI: 0.49%
+ - Genpact: 0.53%
+
+   [29/36] Processing: Security_alert_Vishing_attack_targeting_Genpact_20260326_181717.txt
+
+============================================================
+Starting extraction for: data/outlook_emails\Security_alert_Vishing_attack_targeting_Genpact_20260326_181717.txt
+============================================================
+
+1. Loading document...
+2. Cleaning and preprocessing...
+   - 7 sentences
+   - 198 words
+3. Finding keywords...
+   - Using 10 provided keywords
+
+   Keywords to analyze:
+     1. artificial intelligence
+     2. AI
+     3. machine learning
+     4. Genpact
+     5. International Women's Day
+     6. Empower
+     7. auto finance
+     8. Economic Times
+     9. urgent
+     10. deadline
+
+4. Extracting contexts...
+   - 'AI': 10 occurrences
+   - 'Genpact': 12 occurrences
+
+5. Scoring relevance...
+   - Kept 7 relevant contexts
+6. Finding named entities...
+   - Found 0 entities
+7. Calculating confidence scores...
+
+   Top confidence keywords:
+     Genpact: 0.58 (5 occurrences)
+     AI: 0.49 (2 occurrences)
+
+8. Creating summaries...
+9. Packaging results...
+10. Saving results...
+
+Done! Results saved to:
+   - outputs/outlook_results/email_29/results_20260326_181719.json
+   - outputs/outlook_results/email_29/report_20260326_181719.txt
+Found 2 keywords
+ - AI: 0.49%
+ - Genpact: 0.58%
+
+   [30/36] Processing: Training_is_completed_-_Genpact_Mandatory_Complian_20260326_181717.txt
+
+============================================================
+Starting extraction for: data/outlook_emails\Training_is_completed_-_Genpact_Mandatory_Complian_20260326_181717.txt
+============================================================
+
+1. Loading document...
+2. Cleaning and preprocessing...
+   - 1 sentences
+   - 74 words
+3. Finding keywords...
+   - Using 10 provided keywords
+
+   Keywords to analyze:
+     1. artificial intelligence
+     2. AI
+     3. machine learning
+     4. Genpact
+     5. International Women's Day
+     6. Empower
+     7. auto finance
+     8. Economic Times
+     9. urgent
+     10. deadline
+
+4. Extracting contexts...
+   - 'AI': 10 occurrences
+   - 'Genpact': 8 occurrences
+
+5. Scoring relevance...
+   - Kept 10 relevant contexts
+6. Finding named entities...
+   - Found 0 entities
+7. Calculating confidence scores...
+
+   Top confidence keywords:
+     AI: 0.56 (6 occurrences)
+     Genpact: 0.55 (4 occurrences)
+
+8. Creating summaries...
+9. Packaging results...
+10. Saving results...
+
+Done! Results saved to:
+   - outputs/outlook_results/email_30/results_20260326_181719.json
+   - outputs/outlook_results/email_30/report_20260326_181719.txt
+Found 2 keywords
+ - AI: 0.56%
+ - Genpact: 0.55%
+
+   [31/36] Processing: Reminder_-_Genpact_Mandatory_Compliance_Training_20260326_181717.txt
+
+============================================================
+Starting extraction for: data/outlook_emails\Reminder_-_Genpact_Mandatory_Compliance_Training_20260326_181717.txt
+============================================================
+
+1. Loading document...
+2. Cleaning and preprocessing...
+   - 10 sentences
+   - 283 words
+3. Finding keywords...
+   - Using 10 provided keywords
+
+   Keywords to analyze:
+     1. artificial intelligence
+     2. AI
+     3. machine learning
+     4. Genpact
+     5. International Women's Day
+     6. Empower
+     7. auto finance
+     8. Economic Times
+     9. urgent
+     10. deadline
+
+4. Extracting contexts...
+   - 'AI': 25 occurrences
+   - 'Genpact': 16 occurrences
+
+5. Scoring relevance...
+   - Kept 17 relevant contexts
+6. Finding named entities...
+   - Found 0 entities
+7. Calculating confidence scores...
+
+   Top confidence keywords:
+     AI: 0.59 (10 occurrences)
+     Genpact: 0.59 (7 occurrences)
+
+8. Creating summaries...
+9. Packaging results...
+10. Saving results...
+
+Done! Results saved to:
+   - outputs/outlook_results/email_31/results_20260326_181719.json
+   - outputs/outlook_results/email_31/report_20260326_181719.txt
+Found 2 keywords
+ - AI: 0.59%
+ - Genpact: 0.59%
+
+   [32/36] Processing: Training_Assigned_Genpact_Mandatory_Compliance_Tr_20260326_181717.txt
+
+============================================================
+Starting extraction for: data/outlook_emails\Training_Assigned_Genpact_Mandatory_Compliance_Tr_20260326_181717.txt
+============================================================
+
+1. Loading document...
+2. Cleaning and preprocessing...
+   - 18 sentences
+   - 288 words
+3. Finding keywords...
+   - Using 10 provided keywords
+
+   Keywords to analyze:
+     1. artificial intelligence
+     2. AI
+     3. machine learning
+     4. Genpact
+     5. International Women's Day
+     6. Empower
+     7. auto finance
+     8. Economic Times
+     9. urgent
+     10. deadline
+
+4. Extracting contexts...
+   - 'AI': 26 occurrences
+   - 'Genpact': 16 occurrences
+
+5. Scoring relevance...
+   - Kept 17 relevant contexts
+6. Finding named entities...
+   - Found 0 entities
+7. Calculating confidence scores...
+
+   Top confidence keywords:
+     Genpact: 0.6 (9 occurrences)
+     AI: 0.58 (8 occurrences)
+
+8. Creating summaries...
+9. Packaging results...
+10. Saving results...
+
+Done! Results saved to:
+   - outputs/outlook_results/email_32/results_20260326_181719.json
+   - outputs/outlook_results/email_32/report_20260326_181719.txt
+Found 2 keywords
+ - AI: 0.58%
+ - Genpact: 0.6%
+
+   [33/36] Processing: The_world_is_watching_Genpact_Here’s_why_20260326_181717.txt
+
+============================================================
+Starting extraction for: data/outlook_emails\The_world_is_watching_Genpact_Here’s_why_20260326_181717.txt
+============================================================
+
+1. Loading document...
+2. Cleaning and preprocessing...
+   - 44 sentences
+   - 603 words
+3. Finding keywords...
+   - Using 10 provided keywords
+
+   Keywords to analyze:
+     1. artificial intelligence
+     2. AI
+     3. machine learning
+     4. Genpact
+     5. International Women's Day
+     6. Empower
+     7. auto finance
+     8. Economic Times
+     9. urgent
+     10. deadline
+
+4. Extracting contexts...
+   - 'AI': 17 occurrences
+   - 'Genpact': 49 occurrences
+
+5. Scoring relevance...
+   - Kept 27 relevant contexts
+6. Finding named entities...
+   - Found 0 entities
+7. Calculating confidence scores...
+
+   Top confidence keywords:
+     Genpact: 0.63 (26 occurrences)
+     AI: 0.42 (1 occurrences)
+
+8. Creating summaries...
+9. Packaging results...
+10. Saving results...
+
+Done! Results saved to:
+   - outputs/outlook_results/email_33/results_20260326_181719.json
+   - outputs/outlook_results/email_33/report_20260326_181719.txt
+Found 2 keywords
+ - AI: 0.42%
+ - Genpact: 0.63%
+
+   [34/36] Processing: ATTENTION_Your_Genpact_SSO_password_update_was_su_20260326_181717.txt
+
+============================================================
+Starting extraction for: data/outlook_emails\ATTENTION_Your_Genpact_SSO_password_update_was_su_20260326_181717.txt
+============================================================
+
+1. Loading document...
+2. Cleaning and preprocessing...
+   - 4 sentences
+   - 87 words
+3. Finding keywords...
+   - Using 10 provided keywords
+
+   Keywords to analyze:
+     1. artificial intelligence
+     2. AI
+     3. machine learning
+     4. Genpact
+     5. International Women's Day
+     6. Empower
+     7. auto finance
+     8. Economic Times
+     9. urgent
+     10. deadline
+
+4. Extracting contexts...
+   - 'AI': 6 occurrences
+   - 'Genpact': 3 occurrences
+
+5. Scoring relevance...
+   - Kept 3 relevant contexts
+6. Finding named entities...
+   - Found 0 entities
+7. Calculating confidence scores...
+
+   Top confidence keywords:
+     AI: 0.52 (3 occurrences)
+
+8. Creating summaries...
+9. Packaging results...
+10. Saving results...
+
+Done! Results saved to:
+   - outputs/outlook_results/email_34/results_20260326_181719.json
+   - outputs/outlook_results/email_34/report_20260326_181719.txt
+Found 1 keywords
+ - AI: 0.52%
+
+   [35/36] Processing: ATTENTION_Your_Genpact_SSO_password_update_was_su_20260326_181717_1.txt
+
+============================================================
+Starting extraction for: data/outlook_emails\ATTENTION_Your_Genpact_SSO_password_update_was_su_20260326_181717_1.txt
+============================================================
+
+1. Loading document...
+2. Cleaning and preprocessing...
+   - 4 sentences
+   - 87 words
+3. Finding keywords...
+   - Using 10 provided keywords
+
+   Keywords to analyze:
+     1. artificial intelligence
+     2. AI
+     3. machine learning
+     4. Genpact
+     5. International Women's Day
+     6. Empower
+     7. auto finance
+     8. Economic Times
+     9. urgent
+     10. deadline
+
+4. Extracting contexts...
+   - 'AI': 6 occurrences
+   - 'Genpact': 3 occurrences
+
+5. Scoring relevance...
+   - Kept 3 relevant contexts
+6. Finding named entities...
+   - Found 0 entities
+7. Calculating confidence scores...
+
+   Top confidence keywords:
+     AI: 0.52 (3 occurrences)
+
+8. Creating summaries...
+9. Packaging results...
+10. Saving results...
+
+Done! Results saved to:
+   - outputs/outlook_results/email_35/results_20260326_181719.json
+   - outputs/outlook_results/email_35/report_20260326_181719.txt
+Found 1 keywords
+ - AI: 0.52%
+
+   [36/36] Processing: Don’t_miss_password_expiry_notifications._Login_to_20260326_181717.txt
+
+============================================================
+Starting extraction for: data/outlook_emails\Don’t_miss_password_expiry_notifications._Login_to_20260326_181717.txt
+============================================================
+
+1. Loading document...
+2. Cleaning and preprocessing...
+   - 6 sentences
+   - 111 words
+3. Finding keywords...
+   - Using 10 provided keywords
+
+   Keywords to analyze:
+     1. artificial intelligence
+     2. AI
+     3. machine learning
+     4. Genpact
+     5. International Women's Day
+     6. Empower
+     7. auto finance
+     8. Economic Times
+     9. urgent
+     10. deadline
+
+4. Extracting contexts...
+   - 'AI': 7 occurrences
+   - 'Genpact': 6 occurrences
+
+5. Scoring relevance...
+   - Kept 7 relevant contexts
+6. Finding named entities...
+   - Found 0 entities
+7. Calculating confidence scores...
+
+   Top confidence keywords:
+     AI: 0.55 (4 occurrences)
+     Genpact: 0.53 (3 occurrences)
+
+8. Creating summaries...
+9. Packaging results...
+10. Saving results...
+
+Done! Results saved to:
+   - outputs/outlook_results/email_36/results_20260326_181719.json
+   - outputs/outlook_results/email_36/report_20260326_181719.txt
+Found 2 keywords
+ - AI: 0.55%
+ - Genpact: 0.53%
+
+7. Generating summary report...
+
+----------------------------------------
+SUMMARY REPORT
+----------------------------------------
+Total emails processed: 36
+Emails with keywords: 36
+Success rate: 100.0%
+Total keywords found: 70
+
+Top keywords found:
+  • AI: 36 email(s)
+  • Genpact: 34 email(s)
+
+============================================================
+Outlook extraction complete!
+ Processed: 36 emails
+ Results saved to: outputs/outlook_results
+============================================================
 
 get_emails returned: 0 emails
