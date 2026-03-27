@@ -960,3 +960,17 @@ Graph Algorithm	NetworkX	3.0+	TextRank summarization
 Word Generation	python-docx	0.8.11+	Word document creation
 Data Format	JSON	-	Structured output
 
+
+Outlook Connector (outlook_connector.py)
+Purpose: Connect to Microsoft Outlook using COM API and extract emails.
+
+Key Functions:
+
+Function	Description
+_connect_outlook()	Establishes COM connection to running Outlook instance
+get_folder()	Retrieves specific folders (Inbox, Sent Items, etc.)
+get_emails()	Extracts emails with date, subject, and content filters
+_extract_email_data()	Converts Outlook MailItem to Python dictionary
+save_emails_to_files()	Saves extracted emails to text files
+mark_as_read()	Marks processed emails as read
+
