@@ -444,7 +444,7 @@ def main():
                 all_results.append(results)
                     
             except Exception as e:
-                print(f"      ❌ Error: {e}")
+                print(f" Error: {e}")
                 continue
         
         # Generate summary
