@@ -1032,3 +1032,111 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+-----------------------------------------------------------------------------------------------
+(.venv) PS C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner> python -m spacy download en_core_web_sm
+Traceback (most recent call last):
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\urllib3\connection.py", line 796, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\urllib3\connection.py", line 975, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\urllib3\util\ssl_.py", line 483, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\urllib3\util\ssl_.py", line 527, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\ssl.py", line 1042, in _create
+    self.do_handshake()
+  File "C:\Program Files\Python312\Lib\ssl.py", line 1320, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+urllib3.exceptions.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\requests\adapters.py", line 644, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\urllib3\util\retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /explosion/spacy-models/master/compatibility.json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\spacy\__main__.py", line 4, in <module>
+    setup_cli()
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\spacy\cli\_util.py", line 78, in setup_cli
+    command(prog_name=COMMAND)
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\click\core.py", line 1485, in __call__
+    return self.main(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\typer\core.py", line 795, in main
+    return _main(
+           ^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\typer\core.py", line 188, in _main
+    rv = self.invoke(ctx)
+         ^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\click\core.py", line 1873, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\click\core.py", line 1269, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\click\core.py", line 824, in invoke
+    return callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\typer\main.py", line 1514, in wrapper
+    return callback(**use_params)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\spacy\cli\download.py", line 53, in download_cli
+    download(model, direct, sdist, url, *ctx.args)
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\spacy\cli\download.py", line 95, in download
+    compatibility = get_compatibility()
+                    ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\spacy\cli\download.py", line 140, in get_compatibility
+    r = requests.get(about.__compatibility__)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\requests\api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\requests\adapters.py", line 675, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /explosion/spacy-models/master/compatibility.json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')))
+
+
