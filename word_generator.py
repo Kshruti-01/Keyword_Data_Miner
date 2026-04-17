@@ -4,6 +4,7 @@ Creates formatted Word documents from keyword extraction results.
 """
 
 import os
+import re
 from datetime import datetime
 
 try:
@@ -15,7 +16,7 @@ try:
 except ImportError:
     DOCX_AVAILABLE = False
     print("python-docx not installed. Word generation disabled.")
-    print(" Install with: pip install python-docx")
+    print("Install with: pip install python-docx")
 
 
 class WordReportGenerator:
@@ -39,7 +40,7 @@ class WordReportGenerator:
         self._add_detailed_results(results)
         self._add_footer()
         self.document.save(output_path)
-        print(f" Word report saved to: {output_path}")
+        print(f"Word report saved to: {output_path}")
         return output_path
     
     def _add_header(self):
@@ -158,8 +159,10 @@ class WordReportGenerator:
                     
                     p.add_run(f"\n   Confidence: {confidence}% | Occurrences: {occurrences}")
                     
-                    if summary:
-                        p.add_run(f"\n   Summary: {summary[:200]}...")
+                    if summary and summary != 'No summary available':
+                        clean_summary = re.sub(r'https?://\S+', '', summary)
+                        clean_summary = re.sub(r'\s+', ' ', clean_summary)
+                        p.add_run(f"\n   Summary: {clean_summary[:200]}...")
                     
                     contexts = data.get('contexts', [])
                     if contexts:
@@ -205,7 +208,9 @@ def create_focused_report(summary_data, search_keyword, subject_filter, output_p
     try:
         doc = Document()
         
-        # Title Section
+        # ================================================================
+        # TITLE SECTION
+        # ================================================================
         title = doc.add_heading('Focused Keyword Search Report', 0)
         title.alignment = WD_ALIGN_PARAGRAPH.CENTER
         
@@ -221,7 +226,9 @@ def create_focused_report(summary_data, search_keyword, subject_filter, output_p
         
         doc.add_paragraph('_' * 50)
         
-        # Search Statistics Section
+        # ================================================================
+        # SEARCH STATISTICS SECTION
+        # ================================================================
         doc.add_heading('Search Statistics', level=1)
         
         stats_table = doc.add_table(rows=5, cols=2)
@@ -244,9 +251,11 @@ def create_focused_report(summary_data, search_keyword, subject_filter, output_p
         
         doc.add_paragraph()
         
-        # Context Examples Section
+        # ================================================================
+        # CONTEXT EXAMPLES SECTION
+        # ================================================================
         contexts = summary_data.get('contexts', [])
-        if contexts:
+        if contexts and len(contexts) > 0:
             doc.add_heading('Context Examples', level=1)
             doc.add_paragraph('Here are examples of how the keyword appears in the emails:')
             
@@ -256,14 +265,19 @@ def create_focused_report(summary_data, search_keyword, subject_filter, output_p
                 
                 full_context = ctx.get('full_context', '')
                 if full_context:
+                    # Clean the context
+                    full_context = re.sub(r'https?://\S+', '', full_context)
+                    full_context = re.sub(r'\s+', ' ', full_context)
+                    
+                    # Try to highlight the keyword
                     keyword_lower = search_keyword.lower()
                     text_lower = full_context.lower()
                     pos = text_lower.find(keyword_lower)
                     
-                    if pos != -1:
+                    if pos != -1 and pos + len(search_keyword) <= len(full_context):
                         before = full_context[max(0, pos-50):pos]
                         keyword_text = full_context[pos:pos+len(search_keyword)]
-                        after = full_context[pos+len(search_keyword):pos+100]
+                        after = full_context[pos+len(search_keyword):pos+150]
                         
                         p = doc.add_paragraph()
                         p.add_run(f"...{before}")
@@ -275,20 +289,30 @@ def create_focused_report(summary_data, search_keyword, subject_filter, output_p
                         p = doc.add_paragraph(f"...{full_context[:200]}...")
                 
                 p.paragraph_format.space_after = Pt(12)
+        else:
+            doc.add_heading('Context Examples', level=1)
+            doc.add_paragraph(f"No context examples found for '{search_keyword}'.")
         
-        # Key Summaries Section
+        # ================================================================
+        # KEY SUMMARIES SECTION
+        # ================================================================
         summaries = summary_data.get('summaries', [])
-        if summaries:
+        if summaries and len(summaries) > 0:
             doc.add_heading('Key Insights', level=1)
             doc.add_paragraph('The following insights were extracted from the emails:')
             
             for i, summary in enumerate(summaries[:3], 1):
-                p = doc.add_paragraph()
-                p.add_run(f"Insight {i}:").bold = True
-                p.add_run(f"\n   {summary[:400]}...")
-                p.paragraph_format.space_after = Pt(12)
+                if summary and summary.strip():
+                    p = doc.add_paragraph()
+                    p.add_run(f"Insight {i}:").bold = True
+                    clean_summary = re.sub(r'https?://\S+', '', summary)
+                    clean_summary = re.sub(r'\s+', ' ', clean_summary)
+                    p.add_run(f"\n   {clean_summary[:400]}...")
+                    p.paragraph_format.space_after = Pt(12)
         
-        # Emails with Keyword Section
+        # ================================================================
+        # EMAILS WITH KEYWORD SECTION
+        # ================================================================
         doc.add_heading(f'Emails Containing "{search_keyword}"', level=1)
         
         results = summary_data.get('detailed_results', [])
@@ -296,15 +320,23 @@ def create_focused_report(summary_data, search_keyword, subject_filter, output_p
         
         for result in results:
             keywords = result.get('keywords', {})
-            if search_keyword.lower() in keywords:
+            keyword_data = None
+            for kw in keywords.keys():
+                if kw.lower() == search_keyword.lower():
+                    keyword_data = keywords[kw]
+                    break
+            
+            if keyword_data:
                 email_count += 1
                 email_meta = result.get('email_metadata', {})
-                keyword_data = keywords[search_keyword.lower()]
                 confidence = int(keyword_data.get('confidence', 0) * 100)
                 occurrences = keyword_data.get('occurrences', 0)
                 
-                doc.add_heading(f'Email {email_count}: {email_meta.get("subject", "No Subject")[:70]}', level=2)
+                # Email header
+                subject = email_meta.get("subject", "No Subject")[:70]
+                doc.add_heading(f'Email {email_count}: {subject}', level=2)
                 
+                # Email metadata table
                 meta_table = doc.add_table(rows=4, cols=2)
                 meta_table.style = 'Light Shading'
                 
@@ -320,25 +352,34 @@ def create_focused_report(summary_data, search_keyword, subject_filter, output_p
                     meta_table.rows[j].cells[1].text = value
                     meta_table.rows[j].cells[0].paragraphs[0].runs[0].bold = True
                 
+                # Summary
                 if keyword_data.get('summary'):
-                    doc.add_paragraph()
-                    doc.add_heading('Summary:', level=3)
-                    doc.add_paragraph(keyword_data['summary'][:400])
+                    clean_summary = re.sub(r'https?://\S+', '', keyword_data['summary'])
+                    clean_summary = re.sub(r'\s+', ' ', clean_summary)
+                    if clean_summary.strip():
+                        doc.add_paragraph()
+                        doc.add_heading('Summary:', level=3)
+                        doc.add_paragraph(clean_summary[:400])
                 
+                # Context examples
                 contexts = keyword_data.get('contexts', [])
-                if contexts:
+                if contexts and len(contexts) > 0:
                     doc.add_heading('Context Examples:', level=3)
                     for ctx_idx, ctx in enumerate(contexts[:2], 1):
                         full_context = ctx.get('full_context', '')
                         if full_context:
+                            # Clean the context
+                            full_context = re.sub(r'https?://\S+', '', full_context)
+                            full_context = re.sub(r'\s+', ' ', full_context)
+                            
                             keyword_lower = search_keyword.lower()
                             text_lower = full_context.lower()
                             pos = text_lower.find(keyword_lower)
                             
-                            if pos != -1:
+                            if pos != -1 and pos + len(search_keyword) <= len(full_context):
                                 before = full_context[max(0, pos-60):pos]
                                 keyword_text = full_context[pos:pos+len(search_keyword)]
-                                after = full_context[pos+len(search_keyword):pos+80]
+                                after = full_context[pos+len(search_keyword):pos+100]
                                 
                                 p = doc.add_paragraph()
                                 p.add_run(f"Context {ctx_idx}: ...{before}")
@@ -354,11 +395,13 @@ def create_focused_report(summary_data, search_keyword, subject_filter, output_p
         if email_count == 0:
             doc.add_paragraph(f"No emails were found containing the keyword '{search_keyword}'.")
             doc.add_paragraph("This could be because:")
-            doc.add_paragraph("  The keyword doesn't appear in any of the selected emails")
-            doc.add_paragraph("  The keyword was spelled differently")
-            doc.add_paragraph("   The keyword appears only in a different context")
+            doc.add_paragraph("   • The keyword doesn't appear in any of the selected emails")
+            doc.add_paragraph("   • The keyword was spelled differently")
+            doc.add_paragraph("   • The keyword appears only in a different context")
         
-        # Footer
+        # ================================================================
+        # FOOTER
+        # ================================================================
         doc.add_page_break()
         footer = doc.add_paragraph()
         footer.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -369,12 +412,15 @@ def create_focused_report(summary_data, search_keyword, subject_filter, output_p
         footer.add_run(f'\nGenerated: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
         footer.font.size = Pt(8)
         
+        # Save the document
         doc.save(output_path)
         print(f"Focused Word report saved to: {output_path}")
         return output_path
         
     except Exception as e:
         print(f"Error creating focused Word report: {e}")
+        import traceback
+        traceback.print_exc()
         return None
 
 
@@ -403,4 +449,4 @@ def create_quick_report(extraction_results, keywords, output_path):
         emails_with_keywords=emails_with_keywords,
         total_keywords_found=total_keywords_found,
         output_path=output_path
-                    )
+    )
