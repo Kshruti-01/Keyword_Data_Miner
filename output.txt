@@ -496,3 +496,194 @@ Traceback (most recent call last):
     self.relevance_scorer = RelevanceScorer(threshold=relevance_threshold)   
                                                       ^^^^^^^^^^^^^^^^^^^    
 NameError: name 'relevance_threshold' is not defined
+
+
+
+
+(.venv) PS C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner> python run_outlook_main.py
+
+============================================================
+OUTLOOK EMAIL KEYWORD MINER
+============================================================
+
+1. Connecting to Outlook...
+INFO:src.connectors.outlook_connector:Connected to Outlook successfully
+
+============================================================
+STEP 1: Enter email subject to search for
+============================================================
+
+Enter email subject (or partial subject): empower 2026 starts monday
+
+  Searching for emails with subject containing: 'empower 2026 starts monday'...
+Connected to folder: Inbox
+Looking back: 90 days (since 2026-01-17)
+Total emails in folder: 380
+   🔍 Searching for emails with 'empower 2026 starts monday' in subject...   
+      Checked 50 emails, found 0 matches...
+Found match #1: FW: Empower 2026 starts Monday: Play, protect, earn Cheers
+      Checked 100 emails, found 1 matches...
+Found match #2: Empower 2026 starts Monday: Play, protect, earn Cheers
+      Checked 150 emails, found 2 matches...
+      Checked 200 emails, found 2 matches...
+      Checked 250 emails, found 2 matches...
+      Checked 300 emails, found 2 matches...
+      Checked 350 emails, found 2 matches...
+
+ Search Summary:
+Total emails checked: 380
+ MATCHES FOUND: 2
+INFO:src.connectors.outlook_connector:Extracted 2 emails from Inbox
+ Found 2 email(s) with subject containing 'empower 2026 starts monday'       
+
+ Emails found:
+  1. FW: Empower 2026 starts Monday: Play, protect, earn Cheers
+  From: Chatterjee, Avinandan | Date: 2026-03-18 19:57:39
+  2. Empower 2026 starts Monday: Play, protect, earn Cheers
+  From: Genpact Now | India | Date: 2026-03-06 15:29:52
+
+============================================================
+STEP 2: Enter keyword to search within these emails
+============================================================
+
+Enter keyword to search for: AI
+
+ Searching for 'AI' within the 2 email(s)...
+
+ Saving emails to files...
+INFO:src.connectors.outlook_connector:Successfully saved 2 out of 2 emails to data/outlook_emails/search_empower 2026 starts monday
+ Saved 2 email(s)
+
+ Initializing keyword miner...
+INFO:src.core.text_preprocessor:Loaded stopwords for english
+WARNING:src.core.entity_extractor:spaCy model en_core_web_sm not found. Run: python -m spacy download en_core_web_sm
+   DataMiner initialized with relevance threshold: 0.15
+
+ Processing emails for keyword: 'AI'...
+
+   [1/2] Processing: FW_Empower_2026_starts_Monday_Play_protect_ear_20260417_134711.txt
+
+============================================================
+Starting extraction for: data/outlook_emails/search_empower 2026 starts monday\FW_Empower_2026_starts_Monday_Play_protect_ear_20260417_134711.txt
+============================================================
+
+1. Loading document...
+Cleaning and preprocessing...
+  36 sentences
+  608 words
+3. Finding keywords...
+   - Using 4 provided keywords
+
+   Keywords to analyze:
+     1. AI
+     2. Genpact
+     3. MRO
+     4. Maintanence
+
+4. Extracting contexts...
+   - 'AI': 25 occurrences
+   - 'Genpact': 34 occurrences
+
+5. Scoring relevance...
+   - Kept 35 relevant contexts
+6. Finding named entities...
+   - Found 0 entities
+7. Calculating confidence scores...
+
+   Top confidence keywords:
+     Genpact: 0.62 (25 occurrences)
+     AI: 0.59 (10 occurrences)
+
+8. Creating summaries...
+9. Packaging results...
+10. Saving results...
+
+Done! Results saved to:
+ outputs/outlook_results/search_empower 2026 starts monday/email_1/results_20260417_134711.json
+ outputs/outlook_results/search_empower 2026 starts monday/email_1/report_20260417_134711.txt
+ 'AI' not found in this email
+
+   [2/2] Processing: Empower_2026_starts_Monday_Play_protect_earn_Ch_20260417_134711.txt
+
+============================================================
+Starting extraction for: data/outlook_emails/search_empower 2026 starts monday\Empower_2026_starts_Monday_Play_protect_earn_Ch_20260417_134711.txt        
+============================================================
+
+1. Loading document...
+Cleaning and preprocessing...
+  36 sentences
+  581 words
+3. Finding keywords...
+   - Using 4 provided keywords
+
+   Keywords to analyze:
+     1. AI
+     2. Genpact
+     3. MRO
+     4. Maintanence
+
+4. Extracting contexts...
+   - 'AI': 25 occurrences
+   - 'Genpact': 33 occurrences
+
+5. Scoring relevance...
+   - Kept 35 relevant contexts
+6. Finding named entities...
+   - Found 0 entities
+7. Calculating confidence scores...
+
+   Top confidence keywords:
+     Genpact: 0.62 (24 occurrences)
+     AI: 0.6 (11 occurrences)
+
+8. Creating summaries...
+9. Packaging results...
+10. Saving results...
+
+Done! Results saved to:
+ outputs/outlook_results/search_empower 2026 starts monday/email_2/results_20260417_134711.json
+ outputs/outlook_results/search_empower 2026 starts monday/email_2/report_20260417_134711.txt
+ 'AI' not found in this email
+
+============================================================
+Generating Summary Report
+============================================================
+
+================================================================================
+FOCUSED SUMMARY: 'AI'
+   (Within emails containing: 'empower 2026 starts monday')
+================================================================================
+
+ SEARCH STATISTICS:
+ Email subject filter: 'empower 2026 starts monday'
+ Keyword searched: 'AI'
+ Total emails with subject filter: 2
+ Emails containing keyword: 0
+ Total occurrences: 0
+ Success rate: 0.0%
+
+EMAILS CONTAINING 'AI':
+------------------------------------------------------------
+
+Focused summary saved to: outputs/outlook_results/search_empower 2026 starts monday/focused_summary_AI_20260417_134711.json
+Error creating focused Word report: list index out of range
+Word report saved to: outputs/outlook_results/search_empower 2026 starts monday/focused_report_AI_20260417_134711.docx
+
+================================================================================
+
+============================================================
+ EXTRACTION COMPLETE!
+============================================================
+
+ SUMMARY:
+  Email subject searched: 'empower 2026 starts monday'
+  Emails found: 2
+  Keyword searched: 'AI'
+  Emails containing keyword: 0
+  Total occurrences: 0
+
+ Results saved to:
+  JSON: outputs/outlook_results/search_empower 2026 starts monday/focused_summary_AI_20260417_134711.json
+  Word Document: outputs/outlook_results/search_empower 2026 starts monday/focused_report_AI_20260417_134711.docx
+  Folder: outputs/outlook_results/search_empower 2026 starts monday
+============================================================
