@@ -1,1294 +1,164 @@
-
-
-pywin32 not installed. Outlook integration disabled.
-Install with: pip install pywin32
-Traceback (most recent call last):
-  File "c:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\run_outlook_extraction.py", line 11, in <module>
-    from src.pipeline.data_miner import DataMiner
-  File "c:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\src\pipeline\data_miner.py", line 11, in <module>
-    from src.core.text_preprocessor import TextPreprocessor
-  File "c:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\src\core\__init__.py", line 7, in <module>
-    from .text_preprocessor import TextPreprocessor
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "c:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\src\core\text_preprocessor.py", line 6, in <module>
-    import nltk
-ModuleNotFoundError: No module named 'nltk'
-	 
-
 ============================================================
 OUTLOOK EMAIL KEYWORD MINER
 ============================================================
 
-1. Connecting to Outlook...
-INFO:src.connectors.outlook_connector:Connected to Outlook successfully
-
-2. Choose extraction mode:
- [1] Extract recent emails (last 7 days)
- [2] Extract unread emails only
- [3] Search by subject
- [4] Process all inbox emails
-
-Enter choice (1-4): 2
-
-3. Extracting emails...
-INFO:src.connectors.outlook_connector:Extracted 15 emails from Inbox
-Found 15 emails
-
-4. Saving emails to files...
-INFO:src.connectors.outlook_connector:Successfully saved 15 out of 15 emails to data/outlook_emails
-   Saved 15 emails
-
-5. Initializing keyword miner...
-Traceback (most recent call last):
-  File "c:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\run_outlook_extraction.py", line 209, in <module>
-    main()
-  File "c:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\run_outlook_extraction.py", line 106, in main
-    miner = DataMiner(relevance_threshold=0.15)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-TypeError: DataMiner.__init__() got an unexpected keyword argument 'relevance_threshold'
-
-
-
-3. Extracting emails...
-Enter subject keyword: genpact
-Traceback (most recent call last):
-  File "c:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\run_outlook_extraction.py", line 209, in <module>
-    main()
-  File "c:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\run_outlook_extraction.py", line 77, in main
-    emails = connector.get_emails(
-             ^^^^^^^^^^^^^^^^^^^^^
-  File "c:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\src\connectors\outlook_connector.py", line 144, in get_emails
-    items = items.Restrict(f"[Subject] LIKE '%{subject_filter}%'")
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "<COMObject Restrict>", line 2, in Restrict
-pywintypes.com_error: (-2147352567, 'Exception occurred.', (4096, 'Microsoft Outlook', 'Condition is not valid.', None, 0, -2147352567), None)
-
-3. Extracting emails...
-Enter subject keyword: Genpact
-   Searching for emails with subject containing: 'Genpact'...
-INFO:src.connectors.outlook_connector:Extracted 0 emails from Inbox
-Found 0 emails
-   No emails found matching criteria.
-
-
-============================================================
-OUTLOOK EMAIL KEYWORD MINER
+This tool extracts keywords from your Outlook emails.
+ You can either:
+ 1. Type keywords manually at runtime
+ 2. Use predefined keywords from the configuration
 ============================================================
 
 1. Connecting to Outlook...
 INFO:src.connectors.outlook_connector:Connected to Outlook successfully
+Connected to Outlook successfully
 
-2. Choose extraction mode:
- [1] Extract recent emails (last 7 days)
- [2] Extract unread emails only
- [3] Search by subject
- [4] Process all inbox emails
+============================================================
+ STEP 1: Enter email subject to search for
+============================================================
 
-Enter choice (1-4): 3
+Enter email subject (or partial subject): snowflake certification program
 
-3. Extracting emails...
-Enter subject keyword: Genpact
-Connected to folder: Inbox
-Looking back: 30 days (since 2026-02-24)
-Total emails in folder: 320
-Searching for emails with 'Genpact' in subject...
-      Checked 50 emails, found 0 matches...
-      Checked 100 emails, found 0 matches...
-      Checked 150 emails, found 0 matches...
-      Checked 200 emails, found 0 matches...
-      Checked 250 emails, found 0 matches...
-      Checked 300 emails, found 0 matches...
+ Searching for emails with subject containing: 'snowflake certification program'...
+ Connected to folder: Inbox
+ Looking back: 90 days (since 2026-01-24)
+ Total emails in folder: 390
+ Searching for emails with 'snowflake certification program' in subject...
+ Found match #1: FW: Snowflake Certification Program Q2 2026 | Nominate Now!
+ Checked 50 emails, found 1 matches...
+ Checked 100 emails, found 1 matches...
+ Checked 150 emails, found 1 matches...
+ Checked 200 emails, found 1 matches...
+ Checked 250 emails, found 1 matches...
+ Checked 300 emails, found 1 matches...
+ Checked 350 emails, found 1 matches...
 
  Search Summary:
- Total emails checked: 320
- Filtered by date (> 30 days): 0
- Filtered by subject (no 'Genpact'): 0
- MATCHES FOUND: 0
+ Total emails checked: 390
+ MATCHES FOUND: 1
+INFO:src.connectors.outlook_connector:Extracted 1 emails from Inbox
 
-  No emails found with 'Genpact' in subject.
+ Found 1 email(s) with subject containing 'snowflake certification program'
 
-   Suggestions:
-      1. Check spelling: is it 'Genpact' or something else?
-      2. Try searching with a different keyword
-      3. Increase days_back to 60 or more
-      4. Check if emails are in a different folder (Sent Items, Archive)     
-      5. Run the debug script to see what subjects actually exist
-INFO:src.connectors.outlook_connector:Extracted 0 emails from Inbox
-Found 0 emails
-   No emails found matching criteria.
+ Emails found:
+1. FW: Snowflake Certification Program Q2 2026 | Nominate Now!
+ From: Chatterjee, Avinandan | Date: 2026-04-17 18:05:54
 
-
-================================================================================
-SHOWING ALL EMAIL SUBJECTS IN INBOX
-================================================================================
-Connected to Outlook
-Found Inbox folder
-
-Total emails in inbox: 320
---------------------------------------------------------------------------------
-1. Genpact project update-march 2026
-2. FW: Strategic Update on Genpact's ServiceNow CPL 2026 Performance: (Ma
-3. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282    
-4. Planned outage | Oracle ERP system | March 26 (IST)
-5. This month’s scams look more real than ever
-6. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282    
-7. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282
-8. Join us today | Workday Activation Week: Employee session Slot 1!
-9. Save it or lose it: Outlook cleanup starts soon
-10. Dutta, Soham is trying to reach you in Microsoft Teams
-11. Pricing Training
-12. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282
-13. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282   
-14. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282   
-15. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282
-16. Planned outage | Identity | March 21 & 22 (IST)
-17. FW: Got HR, I&L, or legal questions? Skip emails. Just ask Scout.        
-18. FW: Empower 2026 starts Monday: Play, protect, earn Cheers
-19. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282   
-20. RE: Intern Pulse Check-In | Connect
-21. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282
-22. Workday Activation Week: Employee session Slot 2!
-23. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282
-24. Basic Compliance training for Shruti
-25. Unauthorized Software Use
-26. Unauthorized Software Use
-27. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282   
-28. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282
-29. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282   
-30. Canceled: Basic Compliance training for Shruti
-31. test attachement
-32. project files
-33. Your Friday brief: The refreshed Genpact Now is here!
-34. Planned outage | Scout | March 14 (IST)
-35. Planned outage | Identity | March 21 & 22 (IST)
-36. RE: Intern Pulse Check-In | Connect
-37. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282   
-38. The Art of Storytelling at MARS
-39. Ghosh, Diya is trying to reach you in Microsoft Teams
-40. Planned outage | Oracle ERP system | March 14 to 15 (IST)
-41. Planned outage | iLearn & iPerform | March 14 (IST)
-42. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282   
-43. Rate your experience | RITM5300058
-44. Request Item RITM5300058 comments added -- Use this Request for any li   
-45. Catalog Task SCTASK6817027 has been assigned to group CORP.TECH.TOS.US   
-46. Services impacted | Oracle HRMS & Finance | March 11 (IST)
-47. Important deadlines | Workday transition - For employees
-48. [Reminder 1] Your ticket needs attention/action | RITM5300058
-49. Request Item RITM5300058 comments added -- Use this Request for any li   
-50. Nolasco, Selene is trying to reach you in Microsoft Teams
-51. Catalog Task SCTASK6817027 has been assigned to group CORP.TECH.TOS.US   
-52. Request Item RITM5300058 comments added -- Use this Request for any li   
-53. Catalog Task SCTASK6817027 has been assigned to group CORP.TECH.TOS.AP
-54. Catalog Task SCTASK6817027 has been assigned to group CORP.TECH.TIS.Gl   
-55. Catalog Task SCTASK6817027 has been assigned to group CORP.TECH.TOS.AP
-56. Catalog Task SCTASK6817018 has been assigned to group CORP.TECH.TIS.Gl   
-57. Request Item RITM5300058 comments added -- Use this Request for any li   
-58. Catalog Task SCTASK6817027 has been assigned to group
-59. Catalog Task SCTASK6817018 has been assigned to group CORP.TECH.TIS.Gl   
-60. Request Item RITM5300058 comments added -- Use this Request for any li   
-61. Catalog Task SCTASK6817018 has been assigned to group
-62. Request Item RITM5300058 comments added -- Use this Request for any li   
-63. Request Item RITM5300058 comments added -- Use this Request for any li   
-64. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282
-65. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282   
-66. Empower 2026 | Stronger security starts with you.
-67. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282
-68. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282   
-69. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282
-70. Empower 2026 starts Monday: Play, protect, earn Cheers
-71. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282
-72. Pricing Training
-73. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282
-74. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282   
-75. [No Subject]
-76. PPT update
-77. images
-78. dataiku flowchart
-79. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282   
-80. Bhar, Anukana is trying to reach you in Microsoft Teams
-81. Request Item RITM5262502 comments added -- Addition Or Removal To Non-   
-82. Your ticket has been completed | REQ5305953
-83. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282   
-84. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282
-85. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282   
-86. Got HR, I&L, or legal questions? Skip emails. Just ask Scout.
-87. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282
-88. Your ticket has been logged and awaiting approval | RITM5300058
-89. Today’s Townhall = you’ll want to be there
-90. Intern Pulse Check-In | Connect
-91. Important action required | Complete your Workday updates
-92. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282
-93. AI scams are getting smarter
-94. Quick Connect
-95. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282   
-96. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282   
-97. They chose Genpact. They stayed. Why?
-98. AssetGovernance - Contractor GE Assets Onboarding Intimation - 7031282
-99. Reminder: ESPP Enrollment Period Currently Open
-100. Reminder: ESPP Enrollment Period Currently Open
-
-================================================================================
-Showing first 100 emails
-================================================================================
-
-Checking for keywords in subjects:
+============================================================
+🔍 STEP 2: Choose keyword input method
+============================================================
+ [1] Type keywords manually at runtime
+ [2] Use predefined keywords from configuration
+ [3] Both (predefined + manual)
 ------------------------------------------------------------
 
-'Genpact': Found in 4 emails
-   - Genpact project update-march 2026
-   - FW: Strategic Update on Genpact's ServiceNow CPL 2026 Perfor
-   - Your Friday brief: The refreshed Genpact Now is here!
-
-'genpact': Found in 4 emails
-   - Genpact project update-march 2026
-   - FW: Strategic Update on Genpact's ServiceNow CPL 2026 Perfor
-   - Your Friday brief: The refreshed Genpact Now is here!
-
-'GENPACT': Found in 4 emails
-   - Genpact project update-march 2026
-   - FW: Strategic Update on Genpact's ServiceNow CPL 2026 Perfor
-   - Your Friday brief: The refreshed Genpact Now is here!
-
-'Genpact': Found in 4 emails
-   - Genpact project update-march 2026
-   - FW: Strategic Update on Genpact's ServiceNow CPL 2026 Perfor
-   - Your Friday brief: The refreshed Genpact Now is here!
-
-'meeting': NOT found in any of the first 100 emails
-
-'project': Found in 9 emails
-   - Genpact project update-march 2026
-   - project files
-   - Request Item RITM5300058 comments added -- Use this Request
-
-'update': Found in 4 emails
-   - Genpact project update-march 2026
-   - FW: Strategic Update on Genpact's ServiceNow CPL 2026 Perfor
-   - PPT update
-
-'report': NOT found in any of the first 100 emails
-
-'urgent': NOT found in any of the first 100 emails
-
-'deadline': Found in 1 emails
-   - Important deadlines | Workday transition - For employees
-
-================================================================================
-If you're looking for 'Genpact' but don't see it in the subjects,
-the emails might be:
-  1. Older than 100 emails (scroll further back)
-  2. In a different folder (Sent Items, Archive, etc.)
-  3. Not containing 'Genpact' in the subject (maybe only in body)
-================================================================================
-
-
-
-
-============================================================
-OUTLOOK EMAIL KEYWORD MINER
-============================================================
-
-1. Connecting to Outlook...
-INFO:src.connectors.outlook_connector:Connected to Outlook successfully
-
-2. Choose extraction mode:
- [1] Extract recent emails (last 7 days)
- [2] Extract unread emails only
- [3] Search by subject
- [4] Process all inbox emails
-
-Enter choice (1-4): 3
-
-3. Extracting emails...
-Enter subject keyword: Genpact
-Connected to folder: Inbox
-Looking back: 90 days (since 2025-12-26)
-Total emails in folder: 320
-Searching for emails with 'Genpact' in subject...
-Checked 50 emails, found 0 matches...
-Checked 100 emails, found 0 matches...
-Checked 150 emails, found 0 matches...
-Checked 200 emails, found 0 matches...
-Checked 250 emails, found 0 matches...
-Checked 300 emails, found 0 matches...
-
-Search Summary:
-Total emails checked: 320
- MATCHES FOUND: 0
-
- No emails found with 'Genpact' in subject.
-
-   Suggestions:
- 1. Increase days_back (currently 90)
- 2. Check spelling: is it 'Genpact' or something else?
- 3. Try searching in a different folder (Sent Items, Archive)
- 4. Run the debug script to see what subjects actually exist
-INFO:src.connectors.outlook_connector:Extracted 0 emails from Inbox
-Found 0 emails
-   No emails found matching criteria.
-
-
-============================================================
-Starting extraction for: data/outlook_emails\Request_Item_RITM5266755_comments_added_--_Request_20260326_181717_1.txt
-============================================================
-
-1. Loading document...
-2. Cleaning and preprocessing...
-   - 8 sentences
-   - 211 words
-3. Finding keywords...
-   - Using 10 provided keywords
-
-   Keywords to analyze:
-     1. artificial intelligence
-     2. AI
-     3. machine learning
-     4. Genpact
-     5. International Women's Day
-     6. Empower
-     7. auto finance
-     8. Economic Times
-     9. urgent
-     10. deadline
-
-4. Extracting contexts...
-   - 'AI': 9 occurrences
-   - 'Genpact': 10 occurrences
-
-5. Scoring relevance...
-   - Kept 6 relevant contexts
-6. Finding named entities...
-   - Found 0 entities
-7. Calculating confidence scores...
-
-   Top confidence keywords:
-     Genpact: 0.55 (4 occurrences)
-     AI: 0.49 (2 occurrences)
-
-8. Creating summaries...
-9. Packaging results...
-10. Saving results...
-
-Done! Results saved to:
-   - outputs/outlook_results/email_18/results_20260326_181718.json
-   - outputs/outlook_results/email_18/report_20260326_181718.txt
-Found 2 keywords
- - AI: 0.49%
- - Genpact: 0.55%
-
-   [19/36] Processing: Request_Item_RITM5266755_comments_added_--_Request_20260326_181717_2.txt
-
-============================================================
-Starting extraction for: data/outlook_emails\Request_Item_RITM5266755_comments_added_--_Request_20260326_181717_2.txt
-============================================================
-
-1. Loading document...
-2. Cleaning and preprocessing...
-   - 8 sentences
-   - 211 words
-3. Finding keywords...
-   - Using 10 provided keywords
-
-   Keywords to analyze:
-     1. artificial intelligence
-     2. AI
-     3. machine learning
-     4. Genpact
-     5. International Women's Day
-     6. Empower
-     7. auto finance
-     8. Economic Times
-     9. urgent
-     10. deadline
-
-4. Extracting contexts...
-   - 'AI': 9 occurrences
-   - 'Genpact': 10 occurrences
-
-5. Scoring relevance...
-   - Kept 6 relevant contexts
-6. Finding named entities...
-   - Found 0 entities
-7. Calculating confidence scores...
-
-   Top confidence keywords:
-     Genpact: 0.55 (4 occurrences)
-     AI: 0.49 (2 occurrences)
-
-8. Creating summaries...
-9. Packaging results...
-10. Saving results...
-
-Done! Results saved to:
-   - outputs/outlook_results/email_19/results_20260326_181718.json
-   - outputs/outlook_results/email_19/report_20260326_181718.txt
-Found 2 keywords
- - AI: 0.49%
- - Genpact: 0.55%
-
-   [20/36] Processing: Request_Item_RITM5266755_comments_added_--_Request_20260326_181717_3.txt
-
-============================================================
-Starting extraction for: data/outlook_emails\Request_Item_RITM5266755_comments_added_--_Request_20260326_181717_3.txt
-============================================================
-
-1. Loading document...
-2. Cleaning and preprocessing...
-   - 4 sentences
-   - 151 words
-3. Finding keywords...
-   - Using 10 provided keywords
-
-   Keywords to analyze:
-     1. artificial intelligence
-     2. AI
-     3. machine learning
-     4. Genpact
-     5. International Women's Day
-     6. Empower
-     7. auto finance
-     8. Economic Times
-     9. urgent
-     10. deadline
-
-4. Extracting contexts...
-   - 'AI': 7 occurrences
-   - 'Genpact': 11 occurrences
-
-5. Scoring relevance...
-   - Kept 7 relevant contexts
-6. Finding named entities...
-   - Found 0 entities
-7. Calculating confidence scores...
-
-   Top confidence keywords:
-     Genpact: 0.58 (5 occurrences)
-     AI: 0.49 (2 occurrences)
-
-8. Creating summaries...
-9. Packaging results...
-10. Saving results...
-
-Done! Results saved to:
-   - outputs/outlook_results/email_20/results_20260326_181718.json
-   - outputs/outlook_results/email_20/report_20260326_181718.txt
-Found 2 keywords
- - AI: 0.49%
- - Genpact: 0.58%
-
-   [21/36] Processing: Request_Item_RITM5266755_comments_added_--_Request_20260326_181717_4.txt
-
-============================================================
-Starting extraction for: data/outlook_emails\Request_Item_RITM5266755_comments_added_--_Request_20260326_181717_4.txt
-============================================================
-
-1. Loading document...
-2. Cleaning and preprocessing...
-   - 3 sentences
-   - 145 words
-3. Finding keywords...
-   - Using 10 provided keywords
-
-   Keywords to analyze:
-     1. artificial intelligence
-     2. AI
-     3. machine learning
-     4. Genpact
-     5. International Women's Day
-     6. Empower
-     7. auto finance
-     8. Economic Times
-     9. urgent
-     10. deadline
-
-4. Extracting contexts...
-   - 'AI': 8 occurrences
-   - 'Genpact': 11 occurrences
-
-5. Scoring relevance...
-   - Kept 7 relevant contexts
-6. Finding named entities...
-   - Found 0 entities
-7. Calculating confidence scores...
-
-   Top confidence keywords:
-     Genpact: 0.55 (4 occurrences)
-     AI: 0.52 (3 occurrences)
-
-8. Creating summaries...
-9. Packaging results...
-10. Saving results...
-
-Done! Results saved to:
-   - outputs/outlook_results/email_21/results_20260326_181718.json
-   - outputs/outlook_results/email_21/report_20260326_181718.txt
-Found 2 keywords
- - AI: 0.52%
- - Genpact: 0.55%
-
-   [22/36] Processing: Request_Item_RITM5262493_comments_added_--_Request_20260326_181717.txt
-
-============================================================
-Starting extraction for: data/outlook_emails\Request_Item_RITM5262493_comments_added_--_Request_20260326_181717.txt
-============================================================
-
-1. Loading document...
-2. Cleaning and preprocessing...
-   - 23 sentences
-   - 511 words
-3. Finding keywords...
-   - Using 10 provided keywords
-
-   Keywords to analyze:
-     1. artificial intelligence
-     2. AI
-     3. machine learning
-     4. Genpact
-     5. International Women's Day
-     6. Empower
-     7. auto finance
-     8. Economic Times
-     9. urgent
-     10. deadline
-
-4. Extracting contexts...
-   - 'AI': 20 occurrences
-   - 'Genpact': 17 occurrences
-
-5. Scoring relevance...
-   - Kept 12 relevant contexts
-6. Finding named entities...
-   - Found 0 entities
-7. Calculating confidence scores...
-
-   Top confidence keywords:
-     Genpact: 0.58 (7 occurrences)
-     AI: 0.57 (5 occurrences)
-
-8. Creating summaries...
-9. Packaging results...
-10. Saving results...
-
-Done! Results saved to:
-   - outputs/outlook_results/email_22/results_20260326_181718.json
-   - outputs/outlook_results/email_22/report_20260326_181718.txt
-Found 2 keywords
- - AI: 0.57%
- - Genpact: 0.58%
-
-   [23/36] Processing: Request_Item_RITM5262493_comments_added_--_Request_20260326_181717_1.txt
-
-============================================================
-Starting extraction for: data/outlook_emails\Request_Item_RITM5262493_comments_added_--_Request_20260326_181717_1.txt
-============================================================
-
-1. Loading document...
-2. Cleaning and preprocessing...
-   - 18 sentences
-   - 419 words
-3. Finding keywords...
-   - Using 10 provided keywords
-
-   Keywords to analyze:
-     1. artificial intelligence
-     2. AI
-     3. machine learning
-     4. Genpact
-     5. International Women's Day
-     6. Empower
-     7. auto finance
-     8. Economic Times
-     9. urgent
-     10. deadline
-
-4. Extracting contexts...
-   - 'AI': 16 occurrences
-   - 'Genpact': 13 occurrences
-
-5. Scoring relevance...
-   - Kept 8 relevant contexts
-6. Finding named entities...
-   - Found 0 entities
-7. Calculating confidence scores...
-
-   Top confidence keywords:
-     Genpact: 0.57 (5 occurrences)
-     AI: 0.52 (3 occurrences)
-
-8. Creating summaries...
-9. Packaging results...
-10. Saving results...
-
-Done! Results saved to:
-   - outputs/outlook_results/email_23/results_20260326_181718.json
-   - outputs/outlook_results/email_23/report_20260326_181718.txt
-Found 2 keywords
- - AI: 0.52%
- - Genpact: 0.57%
-
-   [24/36] Processing: Request_Item_RITM5262493_comments_added_--_Request_20260326_181717_2.txt
-
-============================================================
-Starting extraction for: data/outlook_emails\Request_Item_RITM5262493_comments_added_--_Request_20260326_181717_2.txt
-============================================================
-
-1. Loading document...
-2. Cleaning and preprocessing...
-   - 10 sentences
-   - 273 words
-3. Finding keywords...
-   - Using 10 provided keywords
-
-   Keywords to analyze:
-     1. artificial intelligence
-     2. AI
-     3. machine learning
-     4. Genpact
-     5. International Women's Day
-     6. Empower
-     7. auto finance
-     8. Economic Times
-     9. urgent
-     10. deadline
-
-4. Extracting contexts...
-   - 'AI': 12 occurrences
-   - 'Genpact': 13 occurrences
-
-5. Scoring relevance...
-   - Kept 8 relevant contexts
-6. Finding named entities...
-   - Found 0 entities
-7. Calculating confidence scores...
-
-   Top confidence keywords:
-     Genpact: 0.57 (5 occurrences)
-     AI: 0.52 (3 occurrences)
-
-8. Creating summaries...
-9. Packaging results...
-10. Saving results...
-
-Done! Results saved to:
-   - outputs/outlook_results/email_24/results_20260326_181718.json
-   - outputs/outlook_results/email_24/report_20260326_181718.txt
-Found 2 keywords
- - AI: 0.52%
- - Genpact: 0.57%
-
-   [25/36] Processing: Request_Item_RITM5262493_comments_added_--_Request_20260326_181717_3.txt
-
-============================================================
-Starting extraction for: data/outlook_emails\Request_Item_RITM5262493_comments_added_--_Request_20260326_181717_3.txt
-============================================================
-
-1. Loading document...
-2. Cleaning and preprocessing...
-   - 7 sentences
-   - 217 words
-3. Finding keywords...
-   - Using 10 provided keywords
-
-   Keywords to analyze:
-     1. artificial intelligence
-     2. AI
-     3. machine learning
-     4. Genpact
-     5. International Women's Day
-     6. Empower
-     7. auto finance
-     8. Economic Times
-     9. urgent
-     10. deadline
-
-4. Extracting contexts...
-   - 'AI': 9 occurrences
-   - 'Genpact': 9 occurrences
-
-5. Scoring relevance...
-   - Kept 5 relevant contexts
-6. Finding named entities...
-   - Found 0 entities
-7. Calculating confidence scores...
-
-   Top confidence keywords:
-     Genpact: 0.53 (3 occurrences)
-     AI: 0.49 (2 occurrences)
-
-8. Creating summaries...
-9. Packaging results...
-10. Saving results...
-
-Done! Results saved to:
-   - outputs/outlook_results/email_25/results_20260326_181718.json
-   - outputs/outlook_results/email_25/report_20260326_181718.txt
-Found 2 keywords
- - AI: 0.49%
- - Genpact: 0.53%
-
-   [26/36] Processing: Request_Item_RITM5262493_comments_added_--_Request_20260326_181717_4.txt
-
-============================================================
-Starting extraction for: data/outlook_emails\Request_Item_RITM5262493_comments_added_--_Request_20260326_181717_4.txt
-============================================================
-
-1. Loading document...
-2. Cleaning and preprocessing...
-   - 7 sentences
-   - 217 words
-3. Finding keywords...
-   - Using 10 provided keywords
-
-   Keywords to analyze:
-     1. artificial intelligence
-     2. AI
-     3. machine learning
-     4. Genpact
-     5. International Women's Day
-     6. Empower
-     7. auto finance
-     8. Economic Times
-     9. urgent
-     10. deadline
-
-4. Extracting contexts...
-   - 'AI': 9 occurrences
-   - 'Genpact': 9 occurrences
-
-5. Scoring relevance...
-   - Kept 5 relevant contexts
-6. Finding named entities...
-   - Found 0 entities
-7. Calculating confidence scores...
-
-   Top confidence keywords:
-     Genpact: 0.53 (3 occurrences)
-     AI: 0.49 (2 occurrences)
-
-8. Creating summaries...
-9. Packaging results...
-10. Saving results...
-
-Done! Results saved to:
-   - outputs/outlook_results/email_26/results_20260326_181718.json
-   - outputs/outlook_results/email_26/report_20260326_181718.txt
-Found 2 keywords
- - AI: 0.49%
- - Genpact: 0.53%
-
-   [27/36] Processing: Request_Item_RITM5262493_comments_added_--_Request_20260326_181717_5.txt
-
-============================================================
-Starting extraction for: data/outlook_emails\Request_Item_RITM5262493_comments_added_--_Request_20260326_181717_5.txt
-============================================================
-
-1. Loading document...
-2. Cleaning and preprocessing...
-   - 5 sentences
-   - 196 words
-3. Finding keywords...
-   - Using 10 provided keywords
-
-   Keywords to analyze:
-     1. artificial intelligence
-     2. AI
-     3. machine learning
-     4. Genpact
-     5. International Women's Day
-     6. Empower
-     7. auto finance
-     8. Economic Times
-     9. urgent
-     10. deadline
-
-4. Extracting contexts...
-   - 'AI': 9 occurrences
-   - 'Genpact': 9 occurrences
-
-5. Scoring relevance...
-   - Kept 5 relevant contexts
-6. Finding named entities...
-   - Found 0 entities
-7. Calculating confidence scores...
-
-   Top confidence keywords:
-     Genpact: 0.53 (3 occurrences)
-     AI: 0.49 (2 occurrences)
-
-8. Creating summaries...
-9. Packaging results...
-10. Saving results...
-
-Done! Results saved to:
-   - outputs/outlook_results/email_27/results_20260326_181718.json
-   - outputs/outlook_results/email_27/report_20260326_181718.txt
-Found 2 keywords
- - AI: 0.49%
- - Genpact: 0.53%
-
-   [28/36] Processing: Request_Item_RITM5262493_comments_added_--_Request_20260326_181717_6.txt
-
-============================================================
-Starting extraction for: data/outlook_emails\Request_Item_RITM5262493_comments_added_--_Request_20260326_181717_6.txt
-============================================================
-
-1. Loading document...
-2. Cleaning and preprocessing...
-   - 5 sentences
-   - 196 words
-3. Finding keywords...
-   - Using 10 provided keywords
-
-   Keywords to analyze:
-     1. artificial intelligence
-     2. AI
-     3. machine learning
-     4. Genpact
-     5. International Women's Day
-     6. Empower
-     7. auto finance
-     8. Economic Times
-     9. urgent
-     10. deadline
-
-4. Extracting contexts...
-   - 'AI': 9 occurrences
-   - 'Genpact': 9 occurrences
-
-5. Scoring relevance...
-   - Kept 5 relevant contexts
-6. Finding named entities...
-   - Found 0 entities
-7. Calculating confidence scores...
-
-   Top confidence keywords:
-     Genpact: 0.53 (3 occurrences)
-     AI: 0.49 (2 occurrences)
-
-8. Creating summaries...
-9. Packaging results...
-10. Saving results...
-
-Done! Results saved to:
-   - outputs/outlook_results/email_28/results_20260326_181718.json
-   - outputs/outlook_results/email_28/report_20260326_181718.txt
-Found 2 keywords
- - AI: 0.49%
- - Genpact: 0.53%
-
-   [29/36] Processing: Security_alert_Vishing_attack_targeting_Genpact_20260326_181717.txt
-
-============================================================
-Starting extraction for: data/outlook_emails\Security_alert_Vishing_attack_targeting_Genpact_20260326_181717.txt
-============================================================
-
-1. Loading document...
-2. Cleaning and preprocessing...
-   - 7 sentences
-   - 198 words
-3. Finding keywords...
-   - Using 10 provided keywords
-
-   Keywords to analyze:
-     1. artificial intelligence
-     2. AI
-     3. machine learning
-     4. Genpact
-     5. International Women's Day
-     6. Empower
-     7. auto finance
-     8. Economic Times
-     9. urgent
-     10. deadline
-
-4. Extracting contexts...
-   - 'AI': 10 occurrences
-   - 'Genpact': 12 occurrences
-
-5. Scoring relevance...
-   - Kept 7 relevant contexts
-6. Finding named entities...
-   - Found 0 entities
-7. Calculating confidence scores...
-
-   Top confidence keywords:
-     Genpact: 0.58 (5 occurrences)
-     AI: 0.49 (2 occurrences)
-
-8. Creating summaries...
-9. Packaging results...
-10. Saving results...
-
-Done! Results saved to:
-   - outputs/outlook_results/email_29/results_20260326_181719.json
-   - outputs/outlook_results/email_29/report_20260326_181719.txt
-Found 2 keywords
- - AI: 0.49%
- - Genpact: 0.58%
-
-   [30/36] Processing: Training_is_completed_-_Genpact_Mandatory_Complian_20260326_181717.txt
-
-============================================================
-Starting extraction for: data/outlook_emails\Training_is_completed_-_Genpact_Mandatory_Complian_20260326_181717.txt
-============================================================
-
-1. Loading document...
-2. Cleaning and preprocessing...
-   - 1 sentences
-   - 74 words
-3. Finding keywords...
-   - Using 10 provided keywords
-
-   Keywords to analyze:
-     1. artificial intelligence
-     2. AI
-     3. machine learning
-     4. Genpact
-     5. International Women's Day
-     6. Empower
-     7. auto finance
-     8. Economic Times
-     9. urgent
-     10. deadline
-
-4. Extracting contexts...
-   - 'AI': 10 occurrences
-   - 'Genpact': 8 occurrences
-
-5. Scoring relevance...
-   - Kept 10 relevant contexts
-6. Finding named entities...
-   - Found 0 entities
-7. Calculating confidence scores...
-
-   Top confidence keywords:
-     AI: 0.56 (6 occurrences)
-     Genpact: 0.55 (4 occurrences)
-
-8. Creating summaries...
-9. Packaging results...
-10. Saving results...
-
-Done! Results saved to:
-   - outputs/outlook_results/email_30/results_20260326_181719.json
-   - outputs/outlook_results/email_30/report_20260326_181719.txt
-Found 2 keywords
- - AI: 0.56%
- - Genpact: 0.55%
-
-   [31/36] Processing: Reminder_-_Genpact_Mandatory_Compliance_Training_20260326_181717.txt
-
-============================================================
-Starting extraction for: data/outlook_emails\Reminder_-_Genpact_Mandatory_Compliance_Training_20260326_181717.txt
-============================================================
-
-1. Loading document...
-2. Cleaning and preprocessing...
-   - 10 sentences
-   - 283 words
-3. Finding keywords...
-   - Using 10 provided keywords
-
-   Keywords to analyze:
-     1. artificial intelligence
-     2. AI
-     3. machine learning
-     4. Genpact
-     5. International Women's Day
-     6. Empower
-     7. auto finance
-     8. Economic Times
-     9. urgent
-     10. deadline
-
-4. Extracting contexts...
-   - 'AI': 25 occurrences
-   - 'Genpact': 16 occurrences
-
-5. Scoring relevance...
-   - Kept 17 relevant contexts
-6. Finding named entities...
-   - Found 0 entities
-7. Calculating confidence scores...
-
-   Top confidence keywords:
-     AI: 0.59 (10 occurrences)
-     Genpact: 0.59 (7 occurrences)
-
-8. Creating summaries...
-9. Packaging results...
-10. Saving results...
-
-Done! Results saved to:
-   - outputs/outlook_results/email_31/results_20260326_181719.json
-   - outputs/outlook_results/email_31/report_20260326_181719.txt
-Found 2 keywords
- - AI: 0.59%
- - Genpact: 0.59%
-
-   [32/36] Processing: Training_Assigned_Genpact_Mandatory_Compliance_Tr_20260326_181717.txt
-
-============================================================
-Starting extraction for: data/outlook_emails\Training_Assigned_Genpact_Mandatory_Compliance_Tr_20260326_181717.txt
-============================================================
-
-1. Loading document...
-2. Cleaning and preprocessing...
-   - 18 sentences
-   - 288 words
-3. Finding keywords...
-   - Using 10 provided keywords
-
-   Keywords to analyze:
-     1. artificial intelligence
-     2. AI
-     3. machine learning
-     4. Genpact
-     5. International Women's Day
-     6. Empower
-     7. auto finance
-     8. Economic Times
-     9. urgent
-     10. deadline
-
-4. Extracting contexts...
-   - 'AI': 26 occurrences
-   - 'Genpact': 16 occurrences
-
-5. Scoring relevance...
-   - Kept 17 relevant contexts
-6. Finding named entities...
-   - Found 0 entities
-7. Calculating confidence scores...
-
-   Top confidence keywords:
-     Genpact: 0.6 (9 occurrences)
-     AI: 0.58 (8 occurrences)
-
-8. Creating summaries...
-9. Packaging results...
-10. Saving results...
-
-Done! Results saved to:
-   - outputs/outlook_results/email_32/results_20260326_181719.json
-   - outputs/outlook_results/email_32/report_20260326_181719.txt
-Found 2 keywords
- - AI: 0.58%
- - Genpact: 0.6%
-
-   [33/36] Processing: The_world_is_watching_Genpact_Here’s_why_20260326_181717.txt
-
-============================================================
-Starting extraction for: data/outlook_emails\The_world_is_watching_Genpact_Here’s_why_20260326_181717.txt
-============================================================
-
-1. Loading document...
-2. Cleaning and preprocessing...
-   - 44 sentences
-   - 603 words
-3. Finding keywords...
-   - Using 10 provided keywords
-
-   Keywords to analyze:
-     1. artificial intelligence
-     2. AI
-     3. machine learning
-     4. Genpact
-     5. International Women's Day
-     6. Empower
-     7. auto finance
-     8. Economic Times
-     9. urgent
-     10. deadline
-
-4. Extracting contexts...
-   - 'AI': 17 occurrences
-   - 'Genpact': 49 occurrences
-
-5. Scoring relevance...
-   - Kept 27 relevant contexts
-6. Finding named entities...
-   - Found 0 entities
-7. Calculating confidence scores...
-
-   Top confidence keywords:
-     Genpact: 0.63 (26 occurrences)
-     AI: 0.42 (1 occurrences)
-
-8. Creating summaries...
-9. Packaging results...
-10. Saving results...
-
-Done! Results saved to:
-   - outputs/outlook_results/email_33/results_20260326_181719.json
-   - outputs/outlook_results/email_33/report_20260326_181719.txt
-Found 2 keywords
- - AI: 0.42%
- - Genpact: 0.63%
-
-   [34/36] Processing: ATTENTION_Your_Genpact_SSO_password_update_was_su_20260326_181717.txt
-
-============================================================
-Starting extraction for: data/outlook_emails\ATTENTION_Your_Genpact_SSO_password_update_was_su_20260326_181717.txt
-============================================================
-
-1. Loading document...
-2. Cleaning and preprocessing...
-   - 4 sentences
-   - 87 words
-3. Finding keywords...
-   - Using 10 provided keywords
-
-   Keywords to analyze:
-     1. artificial intelligence
-     2. AI
-     3. machine learning
-     4. Genpact
-     5. International Women's Day
-     6. Empower
-     7. auto finance
-     8. Economic Times
-     9. urgent
-     10. deadline
-
-4. Extracting contexts...
-   - 'AI': 6 occurrences
-   - 'Genpact': 3 occurrences
-
-5. Scoring relevance...
-   - Kept 3 relevant contexts
-6. Finding named entities...
-   - Found 0 entities
-7. Calculating confidence scores...
-
-   Top confidence keywords:
-     AI: 0.52 (3 occurrences)
-
-8. Creating summaries...
-9. Packaging results...
-10. Saving results...
-
-Done! Results saved to:
-   - outputs/outlook_results/email_34/results_20260326_181719.json
-   - outputs/outlook_results/email_34/report_20260326_181719.txt
-Found 1 keywords
- - AI: 0.52%
-
-   [35/36] Processing: ATTENTION_Your_Genpact_SSO_password_update_was_su_20260326_181717_1.txt
-
-============================================================
-Starting extraction for: data/outlook_emails\ATTENTION_Your_Genpact_SSO_password_update_was_su_20260326_181717_1.txt
-============================================================
-
-1. Loading document...
-2. Cleaning and preprocessing...
-   - 4 sentences
-   - 87 words
-3. Finding keywords...
-   - Using 10 provided keywords
-
-   Keywords to analyze:
-     1. artificial intelligence
-     2. AI
-     3. machine learning
-     4. Genpact
-     5. International Women's Day
-     6. Empower
-     7. auto finance
-     8. Economic Times
-     9. urgent
-     10. deadline
-
-4. Extracting contexts...
-   - 'AI': 6 occurrences
-   - 'Genpact': 3 occurrences
-
-5. Scoring relevance...
-   - Kept 3 relevant contexts
-6. Finding named entities...
-   - Found 0 entities
-7. Calculating confidence scores...
-
-   Top confidence keywords:
-     AI: 0.52 (3 occurrences)
-
-8. Creating summaries...
-9. Packaging results...
-10. Saving results...
-
-Done! Results saved to:
-   - outputs/outlook_results/email_35/results_20260326_181719.json
-   - outputs/outlook_results/email_35/report_20260326_181719.txt
-Found 1 keywords
- - AI: 0.52%
-
-   [36/36] Processing: Don’t_miss_password_expiry_notifications._Login_to_20260326_181717.txt
-
-============================================================
-Starting extraction for: data/outlook_emails\Don’t_miss_password_expiry_notifications._Login_to_20260326_181717.txt
-============================================================
-
-1. Loading document...
-2. Cleaning and preprocessing...
-   - 6 sentences
-   - 111 words
-3. Finding keywords...
-   - Using 10 provided keywords
-
-   Keywords to analyze:
-     1. artificial intelligence
-     2. AI
-     3. machine learning
-     4. Genpact
-     5. International Women's Day
-     6. Empower
-     7. auto finance
-     8. Economic Times
-     9. urgent
-     10. deadline
-
-4. Extracting contexts...
-   - 'AI': 7 occurrences
-   - 'Genpact': 6 occurrences
-
-5. Scoring relevance...
-   - Kept 7 relevant contexts
-6. Finding named entities...
-   - Found 0 entities
-7. Calculating confidence scores...
-
-   Top confidence keywords:
-     AI: 0.55 (4 occurrences)
-     Genpact: 0.53 (3 occurrences)
-
-8. Creating summaries...
-9. Packaging results...
-10. Saving results...
-
-Done! Results saved to:
-   - outputs/outlook_results/email_36/results_20260326_181719.json
-   - outputs/outlook_results/email_36/report_20260326_181719.txt
-Found 2 keywords
- - AI: 0.55%
- - Genpact: 0.53%
-
-7. Generating summary report...
+Enter your choice (1/2/3): 1       
 
 ----------------------------------------
-SUMMARY REPORT
+MANUAL KEYWORD ENTRY
 ----------------------------------------
-Total emails processed: 36
-Emails with keywords: 36
-Success rate: 100.0%
-Total keywords found: 70
+ For single keyword: just type it (e.g., registration)
+ For multiple keywords: separate with commas (e.g., registration, certification, exam)       
 
-Top keywords found:
-  • AI: 36 email(s)
-  • Genpact: 34 email(s)
+Enter keyword(s): register
+
+ Will search for 1 keyword(s):
+      • register
+
+ Saving emails to files...
+INFO:src.connectors.outlook_connector: Successfully saved 1 out of 1 emails to data/outlook_emails/snowflake_certification_progra
+Saved 1 email(s)
+
+ Initializing keyword miner...
+INFO:src.core.text_preprocessor:Loaded stopwords for english
+WARNING:src.core.entity_extractor:spaCy model en_core_web_sm not found. Run: python -m spacy download en_core_web_sm
+   DataMiner initialized with relevance threshold: 0.15
 
 ============================================================
-Outlook extraction complete!
- Processed: 36 emails
- Results saved to: outputs/outlook_results
+PROCESSING KEYWORDS
 ============================================================
 
+================================================================================
+ Processing keyword 1/1: 'REGISTER'
+================================================================================
+
+   [1/1] Processing: FW_Snowflake_Certification_Program_Q2_2026_Nomi_20...
+ Preview found: ... What’s in it for me? Who can register? How to get started? Genome Wave credit? Industry...
+
+============================================================
+Starting extraction for: data/outlook_emails/snowflake_certification_progra\FW_Snowflake_Certification_Program_Q2_2026_Nomi_20260424_134146.txt
+============================================================
+
+1. Loading document...
+Cleaning and preprocessing...
+  17 sentences
+  318 words
+3. Finding keywords...
+   - Using 1 provided keywords
+
+   Keywords to analyze:
+     1. register
+
+4. Extracting contexts...
+   - 'register': 4 occurrences
+
+5. Scoring relevance...
+   - Kept 0 relevant contexts
+6. Finding named entities...
+   - Found 0 entities
+7. Calculating confidence scores...
+
+   Top confidence keywords:
+
+8. Creating summaries...
+9. Packaging results...
+10. Saving results...
+
+Done! Results saved to:
+ outputs/keyword_results/snowflake_certification_progra/email_1_register/results_20260424_134146.json
+ outputs/keyword_results/snowflake_certification_progra/email_1_register/report_20260424_134146.txt
+ 'register' not found in this email
+
+================================================================================
+ SUMMARY FOR KEYWORD: 'REGISTER'
+ (Within emails containing: 'snowflake certification program')
+================================================================================
+
+SEARCH STATISTICS:
+ Keyword searched: 'register'
+ Emails containing 'register': 0
+ Total occurrences: 0
+ Success rate: 0.0%
+
+ No context examples found for 'register'
+ Tip: Try searching for a different form of the word (e.g., 'register' instead of 'registration')
+
+ No emails found containing 'register'
+
+  SUGGESTIONS:
+ 1. Try a different form of the word (e.g., 'register' instead of 'registration')
+ 2. Try a partial word (e.g., 'regist' instead of 'registration')
+ 3. Check the email content for the exact word
+
+ JSON saved: outputs/keyword_results/snowflake_certification_progra/snowflake_certificat_register_20260424_134146.json
+Text saved: outputs/keyword_results/snowflake_certification_progra/snowflake_certificat_register_20260424_134146.txt
+
+============================================================
+ ALL KEYWORD EXTRACTIONS COMPLETE!
+============================================================
+
+ FINAL SUMMARY:
+ Email subject searched: 'snowflake certification program'
+ Total emails found: 1
+ Total keywords processed: 1
+ Results saved to: outputs/keyword_results/snowflake_certification_progra
+
+ Generated files:
+
+ 'REGISTER':
+ JSON: snowflake_certificat_register_20260424_134146.json
+ TXT: snowflake_certificat_register_20260424_134146.txt
+
+============================================================
+EXTRACTION COMPLETE!
+ All results are in: outputs/keyword_results/snowflake_certification_progra
+============================================================
