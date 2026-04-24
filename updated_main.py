@@ -1,6 +1,7 @@
 """
-Extract keywords from specific emails by subject, then search for ONLY the keyword entered.
-Results saved as JSON and TXT files only (no Word documents).
+Extract keywords from specific emails by subject.
+Option 1: Enter keywords at runtime
+Option 2: Use predefined keywords
 """
 
 import sys
@@ -15,15 +16,32 @@ from src.pipeline.data_miner import DataMiner
 from src.connectors.outlook_connector import OutlookConnector
 
 
-def generate_focused_summary(results, search_keyword, output_folder, total_emails, 
+# ============================================================
+# CONFIGURATION - EDIT THESE PREDEFINED KEYWORDS AS NEEDED
+# ============================================================
+PREDEFINED_KEYWORDS = [
+    "mro",
+    "aviation", 
+    "overhaul",
+    "maintenance",
+    "service",
+    "inventory",
+    "supply chain",
+    "logistics",
+    "procurement",
+    "vendor"
+]
+# ============================================================
+
+
+def generate_keyword_summary(results, search_keyword, output_folder, total_emails, 
                               emails_with_keyword, total_occurrences, subject_filter):
     """
-    Generate a focused summary ONLY for the searched keyword.
-    Saves results as JSON and TXT files.
+    Generate a focused summary for a SINGLE searched keyword.
     """
     print("\n" + "="*80)
-    print(f"FOCUSED SUMMARY: '{search_keyword.upper()}'")
-    print(f"(Within emails containing: '{subject_filter}')")
+    print(f" SUMMARY FOR KEYWORD: '{search_keyword.upper()}'")
+    print(f" (Within emails containing: '{subject_filter}')")
     print("="*80)
     
     # Collect ONLY the searched keyword data
@@ -48,7 +66,6 @@ def generate_focused_summary(results, search_keyword, output_folder, total_email
             actual_total_occurrences += occurrences
             all_contexts.extend(keyword_data.get('contexts', [])[:3])
             if keyword_data.get('summary'):
-                # Clean the summary
                 clean_summary = keyword_data['summary']
                 clean_summary = re.sub(r'https?://\S+', '', clean_summary)
                 clean_summary = re.sub(r'\s+', ' ', clean_summary)
@@ -58,148 +75,24 @@ def generate_focused_summary(results, search_keyword, output_folder, total_email
     success_rate = (email_count / total_emails * 100) if total_emails > 0 else 0
     
     print(f"\n SEARCH STATISTICS:")
-    print(f"Email subject filter: '{subject_filter}'")
-    print(f"Keyword searched: '{search_keyword}'")
-    print(f"Total emails with subject filter: {total_emails}")
-    print(f"Emails containing '{search_keyword}': {email_count}")
-    print(f"Total occurrences: {actual_total_occurrences}")
-    print(f"Success rate: {success_rate:.1f}%")
+    print(f" Keyword searched: '{search_keyword}'")
+    print(f" Emails containing '{search_keyword}': {email_count}")
+    print(f" Total occurrences: {actual_total_occurrences}")
+    print(f" Success rate: {success_rate:.1f}%")
     
-    # Show contexts (only for searched keyword)
+    # Show contexts
     if all_contexts:
         print(f"\n CONTEXT EXAMPLES (for '{search_keyword}'):")
-        print("-" * 60)
-        for i, ctx in enumerate(all_contexts[:5], 1):
-            context_text = ctx.get('full_context', '')[:200]
-            # Clean the context
+        for i, ctx in enumerate(all_contexts[:3], 1):
+            context_text = ctx.get('full_context', '')[:150]
             context_text = re.sub(r'https?://\S+', '', context_text)
-            context_text = re.sub(r'\s+', ' ', context_text)
-            print(f"\n {i}. ...{context_text}...")
+            print(f"\n   {i}. ...{context_text}...")
     else:
         print(f"\n No context examples found for '{search_keyword}'")
     
-    # Show summaries
-    if all_summaries:
-        print(f"\n KEY SUMMARIES (for '{search_keyword}'):")
-        print("-" * 60)
-        for i, summary in enumerate(all_summaries[:3], 1):
-            print(f"\n   {i}. {summary[:200]}...")
-    
-    # Show emails where keyword was found
-    print(f"\n EMAILS CONTAINING '{search_keyword.upper()}':")
-    print("-" * 60)
-    
-    email_index = 0
-    for result in results:
-        keywords = result.get('keywords', {})
-        keyword_data = None
-        for kw in keywords.keys():
-            if kw.lower() == search_keyword.lower():
-                keyword_data = keywords[kw]
-                break
-        
-        if keyword_data:
-            email_index += 1
-            email_meta = result.get('email_metadata', {})
-            confidence = int(keyword_data.get('confidence', 0) * 100)
-            occurrences = keyword_data.get('occurrences', 0)
-            
-            print(f"\n {email_index}. {email_meta.get('subject', 'No Subject')[:70]}")
-            print(f" From: {email_meta.get('sender', 'Unknown')}")
-            print(f" Date: {email_meta.get('date', 'Unknown')}")
-            print(f" '{search_keyword}' found: {occurrences} time(s) | Confidence: {confidence}%")
-            
-            # Show summary for this email
-            if keyword_data.get('summary'):
-                clean_summary = re.sub(r'https?://\S+', '', keyword_data['summary'])
-                clean_summary = re.sub(r'\s+', ' ', clean_summary)
-                print(f"Summary: {clean_summary[:150]}...")
-    
-    if email_count == 0:
-        print(f"\n No emails found containing '{search_keyword}'")
-    
-    # Save focused summary to JSON file
-    summary_data = {
-        'search_criteria': {
-            'subject_filter': subject_filter,
-            'keyword_searched': search_keyword
-        },
-        'total_emails_with_subject': total_emails,
-        'emails_with_keyword': email_count,
-        'total_occurrences': actual_total_occurrences,
-        'success_rate': success_rate,
-        'contexts': all_contexts[:10],
-        'summaries': all_summaries[:5],
-        'detailed_results': results
-    }
-    
-    # Save as JSON
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    safe_subject = re.sub(r'[^\w\s-]', '', subject_filter)[:30]
-    safe_subject = safe_subject.replace(' ', '_')
-    json_file = f"{output_folder}/focused_summary_{search_keyword}_{timestamp}.json"
-    
-    with open(json_file, 'w', encoding='utf-8') as f:
-        json.dump(summary_data, f, indent=2, default=str)
-    
-    print(f"\nJSON summary saved to: {json_file}")
-    
-    # Save as TXT report
-    txt_file = f"{output_folder}/focused_report_{search_keyword}_{timestamp}.txt"
-    save_text_report(summary_data, search_keyword, subject_filter, txt_file)
-    
-    return json_file, txt_file
-
-
-def save_text_report(summary_data, search_keyword, subject_filter, txt_file):
-    """
-    Save a human-readable text report.
-    """
-    with open(txt_file, 'w', encoding='utf-8') as f:
-        f.write("=" * 80 + "\n")
-        f.write(f"FOCUSED KEYWORD SEARCH REPORT\n")
-        f.write("=" * 80 + "\n\n")
-        
-        f.write(f"Email Subject Filter: {subject_filter}\n")
-        f.write(f"Keyword Searched: {search_keyword}\n")
-        f.write(f"Generated on: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
-        
-        f.write("-" * 80 + "\n")
-        f.write("SEARCH STATISTICS\n")
-        f.write("-" * 80 + "\n\n")
-        
-        f.write(f"Total emails with subject filter: {summary_data.get('total_emails_with_subject', 0)}\n")
-        f.write(f"Emails containing '{search_keyword}': {summary_data.get('emails_with_keyword', 0)}\n")
-        f.write(f"Total occurrences: {summary_data.get('total_occurrences', 0)}\n")
-        f.write(f"Success rate: {summary_data.get('success_rate', 0):.1f}%\n\n")
-        
-        # Context examples
-        contexts = summary_data.get('contexts', [])
-        if contexts:
-            f.write("-" * 80 + "\n")
-            f.write("CONTEXT EXAMPLES\n")
-            f.write("-" * 80 + "\n\n")
-            for i, ctx in enumerate(contexts[:5], 1):
-                context_text = ctx.get('full_context', '')[:200]
-                context_text = re.sub(r'https?://\S+', '', context_text)
-                context_text = re.sub(r'\s+', ' ', context_text)
-                f.write(f"{i}. ...{context_text}...\n\n")
-        
-        # Key summaries
-        summaries = summary_data.get('summaries', [])
-        if summaries:
-            f.write("-" * 80 + "\n")
-            f.write("KEY SUMMARIES\n")
-            f.write("-" * 80 + "\n\n")
-            for i, summary in enumerate(summaries[:3], 1):
-                f.write(f"{i}. {summary[:300]}...\n\n")
-        
-        # Emails containing keyword
-        f.write("-" * 80 + "\n")
-        f.write(f"EMAILS CONTAINING '{search_keyword.upper()}'\n")
-        f.write("-" * 80 + "\n\n")
-        
-        results = summary_data.get('detailed_results', [])
+    # Show emails
+    if email_count > 0:
+        print(f"\n EMAILS CONTAINING '{search_keyword.upper()}':")
         email_index = 0
         for result in results:
             keywords = result.get('keywords', {})
@@ -215,38 +108,87 @@ def save_text_report(summary_data, search_keyword, subject_filter, txt_file):
                 confidence = int(keyword_data.get('confidence', 0) * 100)
                 occurrences = keyword_data.get('occurrences', 0)
                 
-                f.write(f"Email {email_index}:\n")
-                f.write(f" Subject: {email_meta.get('subject', 'No Subject')[:70]}\n")
-                f.write(f" From: {email_meta.get('sender', 'Unknown')}\n")
-                f.write(f" Date: {email_meta.get('date', 'Unknown')}\n")
-                f.write(f" '{search_keyword}' found: {occurrences} time(s)\n")
-                f.write(f" Confidence: {confidence}%\n")
-                
-                if keyword_data.get('summary'):
-                    clean_summary = re.sub(r'https?://\S+', '', keyword_data['summary'])
-                    clean_summary = re.sub(r'\s+', ' ', clean_summary)
-                    f.write(f"  Summary: {clean_summary[:200]}...\n")
-                f.write("\n")
-        
-        if email_index == 0:
-            f.write(f"No emails found containing '{search_keyword}'.\n")
-        
-        f.write("=" * 80 + "\n")
-        f.write(f"Report generated by Email Keyword Miner v2.0\n")
-        f.write(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+                print(f"\n {email_index}. {email_meta.get('subject', 'No Subject')[:60]}")
+                print(f" From: {email_meta.get('sender', 'Unknown')}")
+                print(f" Date: {email_meta.get('date', 'Unknown')}")
+                print(f"'{search_keyword}' found: {occurrences} time(s) | Confidence: {confidence}%")
+    else:
+        print(f"\n No emails found containing '{search_keyword}'")
     
-    print(f"Text report saved to: {txt_file}")
+    # Save summary to file
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    safe_subject = re.sub(r'[^\w\s-]', '', subject_filter)[:20].replace(' ', '_')
+    
+    # Create output directory
+    os.makedirs(output_folder, exist_ok=True)
+    
+    summary_data = {
+        'keyword': search_keyword,
+        'subject_filter': subject_filter,
+        'total_emails_scanned': total_emails,
+        'emails_with_keyword': email_count,
+        'total_occurrences': actual_total_occurrences,
+        'success_rate': success_rate,
+        'contexts': all_contexts[:10],
+        'summaries': all_summaries[:5],
+        'detailed_results': results
+    }
+    
+    # Save JSON
+    json_file = f"{output_folder}/{safe_subject}_{search_keyword}_{timestamp}.json"
+    with open(json_file, 'w', encoding='utf-8') as f:
+        json.dump(summary_data, f, indent=2, default=str)
+    
+    # Save TXT
+    txt_file = f"{output_folder}/{safe_subject}_{search_keyword}_{timestamp}.txt"
+    with open(txt_file, 'w', encoding='utf-8') as f:
+        f.write("="*60 + "\n")
+        f.write(f"KEYWORD SUMMARY REPORT\n")
+        f.write("="*60 + "\n\n")
+        f.write(f"Keyword searched: {search_keyword.upper()}\n")
+        f.write(f"Email subject filter: {subject_filter}\n")
+        f.write(f"Generated on: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
+        
+        f.write("-"*40 + "\n")
+        f.write("STATISTICS\n")
+        f.write("-"*40 + "\n")
+        f.write(f"Total emails scanned: {total_emails}\n")
+        f.write(f"Emails with keyword: {email_count}\n")
+        f.write(f"Total occurrences: {actual_total_occurrences}\n")
+        f.write(f"Success rate: {success_rate:.1f}%\n\n")
+        
+        if all_contexts:
+            f.write("-"*40 + "\n")
+            f.write("CONTEXT EXAMPLES\n")
+            f.write("-"*40 + "\n")
+            for i, ctx in enumerate(all_contexts[:3], 1):
+                ctx_text = ctx.get('full_context', '')[:200]
+                ctx_text = re.sub(r'https?://\S+', '', ctx_text)
+                f.write(f"\n{i}. ...{ctx_text}...\n")
+        
+        if all_summaries:
+            f.write("\n" + "-"*40 + "\n")
+            f.write("KEY SUMMARIES\n")
+            f.write("-"*40 + "\n")
+            for i, summary in enumerate(all_summaries[:2], 1):
+                f.write(f"\n{i}. {summary[:250]}...\n")
+    
+    print(f"\n JSON saved: {json_file}")
+    print(f"Text saved: {txt_file}")
+    
+    return json_file, txt_file
 
 
 def main():
-    """
-    Main function to run the Email Keyword Miner.
-    Searches ONLY for the keyword entered by the user.
-    """
-    OUTPUT_FOLDER = "outputs/outlook_results"
+    OUTPUT_FOLDER = "outputs/keyword_results"
     
     print("\n" + "="*60)
     print("OUTLOOK EMAIL KEYWORD MINER")
+    print("="*60)
+    print("\n This tool extracts keywords from your Outlook emails.")
+    print(" You can either:")
+    print(" 1. Type keywords manually at runtime")
+    print(" 2. Use predefined keywords from the configuration")
     print("="*60)
     
     # Step 1: Connect to Outlook
@@ -259,6 +201,8 @@ def main():
         print("  1. Make sure Outlook is open")
         print("  2. Check that pywin32 is installed: pip install pywin32")
         return
+    
+    print("Connected to Outlook successfully")
     
     # Step 2: Enter email subject to search for
     print("\n" + "="*60)
@@ -281,63 +225,107 @@ def main():
         subject_filter=subject_filter
     )
     
-    print(f"Found {len(emails)} email(s) with subject containing '{subject_filter}'")
+    print(f"\n Found {len(emails)} email(s) with subject containing '{subject_filter}'")
     
-    # Debug if no emails found
-    if len(emails) == 0:
-        print(f"\n No emails found with subject containing '{subject_filter}'")
-        print(f"\n  Debug: Checking recent emails to verify...")
-        
-        # Get recent emails without filter to see what's available
-        recent_emails = connector.get_emails(
-            folder="Inbox",
-            days_back=1,
-            limit=10,
-            unread_only=False,
-            subject_filter=None
-        )
-        
-        if recent_emails:
-            print(f"\n Recent emails in your inbox (last 1 day):")
-            for i, email in enumerate(recent_emails[:5], 1):
-                print(f" {i}. {email['subject'][:70]}")
-                print(f" Contains '{subject_filter}'? {'YES' if subject_filter.lower() in email['subject'].lower() else 'NO'}")
-        else:
-            print(f"\n No emails found in the last 1 day!")
-            print(f" Check if Outlook is synced or if you have new emails.")
-        
-        print("\n   Exiting. Please try again with a different subject.")
+    if not emails:
+        print("\n   No emails found. Try a different subject or check your inbox.")
         return
     
     # Display found emails
     print("\n Emails found:")
     for i, email in enumerate(emails, 1):
-        print(f" {i}. {email['subject'][:80]}")
+        # Truncate long subjects
+        display_subject = email['subject'][:70] + "..." if len(email['subject']) > 70 else email['subject']
+        print(f" {i}. {display_subject}")
         print(f" From: {email['sender_name']} | Date: {email['received_time']}")
     
-    # Step 3: Enter keyword to search within these emails
+    # Step 3: Choose keyword input method
     print("\n" + "="*60)
-    print("STEP 2: Enter keyword to search within these emails")
+    print("STEP 2: Choose keyword input method")
     print("="*60)
-    search_keyword = input("\nEnter keyword to search for: ").strip()
+    print(" [1] Type keywords manually at runtime")
+    print(" [2] Use predefined keywords from configuration")
+    print(" [3] Both (predefined + manual)")
+    print("-" * 60)
     
-    if not search_keyword:
-        print(" No keyword entered. Exiting.")
+    choice = input("\nEnter your choice (1/2/3): ").strip()
+    
+    keywords_to_search = []
+    
+    if choice == '1':
+        # Manual input only
+        print("\n" + "-"*40)
+        print("MANUAL KEYWORD ENTRY")
+        print("-"*40)
+        print(" For single keyword: just type it (e.g., service)")
+        print(" For multiple keywords: separate with commas (e.g., service, overhaul, maintenance)")
+        
+        keywords_input = input("\nEnter keyword(s): ").strip()
+        if not keywords_input:
+            print("No keyword entered. Exiting.")
+            return
+        keywords_to_search = [k.strip().lower() for k in keywords_input.split(',')]
+        
+    elif choice == '2':
+        # Predefined keywords only
+        print("\n" + "-"*40)
+        print("PREDEFINED KEYWORDS")
+        print("-"*40)
+        print(f"Available keywords: {', '.join(PREDEFINED_KEYWORDS)}")
+        
+        # Show numbered list for easy selection
+        print("\n Select keywords to search (enter numbers separated by commas):")
+        for i, kw in enumerate(PREDEFINED_KEYWORDS, 1):
+            print(f"{i}. {kw}")
+        
+        selection = input("\nEnter your choice (e.g., 1,3,5 for first, third and fifth): ").strip()
+        
+        if selection:
+            indices = [int(x.strip()) for x in selection.split(',') if x.strip().isdigit()]
+            keywords_to_search = [PREDEFINED_KEYWORDS[i-1] for i in indices if 1 <= i <= len(PREDEFINED_KEYWORDS)]
+        
+        if not keywords_to_search:
+            print(" No valid selection. Using all predefined keywords.")
+            keywords_to_search = PREDEFINED_KEYWORDS.copy()
+    
+    elif choice == '3':
+        # Both predefined and manual
+        print("\n" + "-"*40)
+        print("PREDEFINED KEYWORDS")
+        print("-"*40)
+        print(f"Available predefined keywords: {', '.join(PREDEFINED_KEYWORDS)}")
+        
+        use_predefined = input("\nUse predefined keywords? (y/n): ").strip().lower()
+        if use_predefined == 'y':
+            keywords_to_search.extend(PREDEFINED_KEYWORDS)
+        
+        print("\n" + "-"*40)
+        print("MANUAL KEYWORD ENTRY")
+        print("-"*40)
+        manual_input = input("Enter additional keywords (comma-separated) or press Enter to skip: ").strip()
+        if manual_input:
+            manual_keywords = [k.strip().lower() for k in manual_input.split(',')]
+            keywords_to_search.extend(manual_keywords)
+        
+        # Remove duplicates
+        keywords_to_search = list(set(keywords_to_search))
+    
+    else:
+        print("Invalid choice. Exiting.")
         return
     
-    # IMPORTANT: Create a list with ONLY the searched keyword (NO other keywords!)
-    keywords_to_search = [search_keyword]
+    if not keywords_to_search:
+        print("No keywords selected. Exiting.")
+        return
     
-    print(f"\n Searching for '{search_keyword}' within the {len(emails)} email(s)...")
+    print(f"\n Will search for {len(keywords_to_search)} keyword(s):")
+    for kw in keywords_to_search:
+        print(f"{kw}")
     
     # Step 4: Save emails to files
     print("\n Saving emails to files...")
-    os.makedirs("data/outlook_emails", exist_ok=True)
-    
-    # Create a subfolder for this search
-    safe_subject = re.sub(r'[^\w\s-]', '', subject_filter)[:30]
-    safe_subject = safe_subject.replace(' ', '_')
-    search_folder = f"data/outlook_emails/search_{safe_subject}"
+    safe_subject = re.sub(r'[^\w\s-]', '', subject_filter)[:30].replace(' ', '_')
+    search_folder = f"data/outlook_emails/{safe_subject}"
     os.makedirs(search_folder, exist_ok=True)
     
     saved_files = connector.save_emails_to_files(emails, output_dir=search_folder)
@@ -347,90 +335,94 @@ def main():
     print("\n Initializing keyword miner...")
     miner = DataMiner(relevance_threshold=0.15)
     
-    # Step 6: Process each email - ONLY search for the keyword you entered
-    print(f"\nProcessing emails for keyword: '{search_keyword}'...")
-    all_results = []
-    emails_with_keyword = 0
-    total_occurrences = 0
-    
-    # Create a results folder for this search
-    results_folder = f"{OUTPUT_FOLDER}/search_{safe_subject}"
+    # Create results folder
+    results_folder = f"{OUTPUT_FOLDER}/{safe_subject}"
     os.makedirs(results_folder, exist_ok=True)
     
-    for i, email_file in enumerate(saved_files, 1):
-        print(f"\n   [{i}/{len(saved_files)}] Processing: {os.path.basename(email_file)}")
-        
-        try:
-            # IMPORTANT: Mine the document with ONLY the searched keyword
-            results = miner.mine_document(
-                document_path=email_file,
-                seed_keywords=keywords_to_search,  # ← ONLY ONE KEYWORD!
-                output_dir=f"{results_folder}/email_{i}"
-            )
-            
-            # Check if the search keyword was found in this email
-            keyword_found = results.get('keywords', {}).get(search_keyword.lower(), None)
-            
-            if keyword_found:
-                emails_with_keyword += 1
-                occurrences = keyword_found.get('occurrences', 0)
-                total_occurrences += occurrences
-                print(f" Found '{search_keyword}' {occurrences} time(s)")
-                
-                # Show a preview of the summary
-                summary = keyword_found.get('summary', '')
-                if summary:
-                    # Clean the summary
-                    clean_summary = re.sub(r'https?://\S+', '', summary)
-                    clean_summary = re.sub(r'\s+', ' ', clean_summary)
-                    print(f" Preview: {clean_summary[:100]}...")
-            else:
-                print(f" '{search_keyword}' not found in this email")
-            
-            # Add email metadata
-            results['email_metadata'] = {
-                'subject': emails[i-1]['subject'],
-                'sender': emails[i-1]['sender_name'],
-                'date': emails[i-1]['received_time']
-            }
-            
-            all_results.append(results)
-                
-        except Exception as e:
-            print(f" Error: {e}")
-            continue
-    
-    # Step 7: Generate focused summary report
+    # Step 6: Process each keyword SEPARATELY
     print("\n" + "="*60)
-    print("Generating Summary Report")
+    print("PROCESSING KEYWORDS")
     print("="*60)
     
-    json_file, txt_file = generate_focused_summary(
-        all_results, 
-        search_keyword, 
-        results_folder,
-        len(saved_files),
-        emails_with_keyword,
-        total_occurrences,
-        subject_filter
-    )
+    all_summary_files = []
     
-    # Step 8: Final summary
+    for keyword_idx, keyword in enumerate(keywords_to_search, 1):
+        print(f"\n{'='*80}")
+        print(f"Processing keyword {keyword_idx}/{len(keywords_to_search)}: '{keyword.upper()}'")
+        print(f"{'='*80}")
+        
+        all_results = []
+        emails_with_keyword = 0
+        total_occurrences = 0
+        
+        for i, email_file in enumerate(saved_files, 1):
+            print(f"\n   [{i}/{len(saved_files)}] Processing: {os.path.basename(email_file)[:50]}...")
+            
+            try:
+                # Mine ONLY for this specific keyword
+                results = miner.mine_document(
+                    document_path=email_file,
+                    seed_keywords=[keyword],  # ONLY this keyword!
+                    output_dir=f"{results_folder}/email_{i}_{keyword}"
+                )
+                
+                # Check if keyword found
+                keyword_found = results.get('keywords', {}).get(keyword, None)
+                
+                if keyword_found:
+                    emails_with_keyword += 1
+                    occurrences = keyword_found.get('occurrences', 0)
+                    total_occurrences += occurrences
+                    print(f" Found '{keyword}' {occurrences} time(s)")
+                else:
+                    print(f"'{keyword}' not found in this email")
+                
+                # Add metadata
+                results['email_metadata'] = {
+                    'subject': emails[i-1]['subject'],
+                    'sender': emails[i-1]['sender_name'],
+                    'date': emails[i-1]['received_time']
+                }
+                
+                all_results.append(results)
+                
+            except Exception as e:
+                print(f" Error: {e}")
+                continue
+        
+        # Generate summary for this keyword
+        json_file, txt_file = generate_keyword_summary(
+            all_results, 
+            keyword, 
+            results_folder,
+            len(saved_files),
+            emails_with_keyword,
+            total_occurrences,
+            subject_filter
+        )
+        
+        all_summary_files.append((keyword, json_file, txt_file))
+    
+    # Step 7: Final summary
+    print("\n" + "="*60)
+    print("ALL KEYWORD EXTRACTIONS COMPLETE!")
+    print("="*60)
+    
+    print("\n FINAL SUMMARY:")
+    print(f" Email subject searched: '{subject_filter}'")
+    print(f" Total emails found: {len(saved_files)}")
+    print(f" Total keywords processed: {len(keywords_to_search)}")
+    print(f" Results saved to: {results_folder}")
+    
+    print("\n Generated files:")
+    for keyword, json_file, txt_file in all_summary_files:
+        print(f"\n '{keyword.upper()}':")
+        print(f" JSON: {os.path.basename(json_file)}")
+        print(f" TXT: {os.path.basename(txt_file)}")
+    
     print("\n" + "="*60)
     print("EXTRACTION COMPLETE!")
-    print("="*60)
-    print(f"\n FINAL SUMMARY:")
-    print(f" Email subject searched: '{subject_filter}'")
-    print(f" Emails found: {len(saved_files)}")
-    print(f" Keyword searched: '{search_keyword}'")
-    print(f" Emails containing keyword: {emails_with_keyword}")
-    print(f" Total occurrences: {total_occurrences}")
-    print(f" Success rate: {(emails_with_keyword/len(saved_files)*100) if saved_files else 0:.1f}%")
-    
-    print(f"\nResults saved to:")
-    print(f" JSON: {json_file}")
-    print(f" Text Report: {txt_file}")
-    print(f" Folder: {results_folder}")
+    print(f" All results are in: {results_folder}")
     print("="*60)
 
 
