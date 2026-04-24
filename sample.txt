@@ -1,164 +1,104 @@
-============================================================
-OUTLOOK EMAIL KEYWORD MINER
-============================================================
+(.venv) PS C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner> python -m spacy download en_core_web_sm
+Traceback (most recent call last):
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\urllib3\connection.py", line 796, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\urllib3\connection.py", line 975, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\urllib3\util\ssl_.py", line 483, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\urllib3\util\ssl_.py", line 527, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\ssl.py", line 1042, in _create
+    self.do_handshake()
+  File "C:\Program Files\Python312\Lib\ssl.py", line 1320, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)
 
-This tool extracts keywords from your Outlook emails.
- You can either:
- 1. Type keywords manually at runtime
- 2. Use predefined keywords from the configuration
-============================================================
+During handling of the above exception, another exception occurred:
 
-1. Connecting to Outlook...
-INFO:src.connectors.outlook_connector:Connected to Outlook successfully
-Connected to Outlook successfully
+Traceback (most recent call last):
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+urllib3.exceptions.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)
 
-============================================================
- STEP 1: Enter email subject to search for
-============================================================
+The above exception was the direct cause of the following exception:
 
-Enter email subject (or partial subject): snowflake certification program
+Traceback (most recent call last):
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\requests\adapters.py", line 644, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\urllib3\util\retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /explosion/spacy-models/master/compatibility.json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')))
 
- Searching for emails with subject containing: 'snowflake certification program'...
- Connected to folder: Inbox
- Looking back: 90 days (since 2026-01-24)
- Total emails in folder: 390
- Searching for emails with 'snowflake certification program' in subject...
- Found match #1: FW: Snowflake Certification Program Q2 2026 | Nominate Now!
- Checked 50 emails, found 1 matches...
- Checked 100 emails, found 1 matches...
- Checked 150 emails, found 1 matches...
- Checked 200 emails, found 1 matches...
- Checked 250 emails, found 1 matches...
- Checked 300 emails, found 1 matches...
- Checked 350 emails, found 1 matches...
+During handling of the above exception, another exception occurred:
 
- Search Summary:
- Total emails checked: 390
- MATCHES FOUND: 1
-INFO:src.connectors.outlook_connector:Extracted 1 emails from Inbox
-
- Found 1 email(s) with subject containing 'snowflake certification program'
-
- Emails found:
-1. FW: Snowflake Certification Program Q2 2026 | Nominate Now!
- From: Chatterjee, Avinandan | Date: 2026-04-17 18:05:54
-
-============================================================
-🔍 STEP 2: Choose keyword input method
-============================================================
- [1] Type keywords manually at runtime
- [2] Use predefined keywords from configuration
- [3] Both (predefined + manual)
-------------------------------------------------------------
-
-Enter your choice (1/2/3): 1       
-
-----------------------------------------
-MANUAL KEYWORD ENTRY
-----------------------------------------
- For single keyword: just type it (e.g., registration)
- For multiple keywords: separate with commas (e.g., registration, certification, exam)       
-
-Enter keyword(s): register
-
- Will search for 1 keyword(s):
-      • register
-
- Saving emails to files...
-INFO:src.connectors.outlook_connector: Successfully saved 1 out of 1 emails to data/outlook_emails/snowflake_certification_progra
-Saved 1 email(s)
-
- Initializing keyword miner...
-INFO:src.core.text_preprocessor:Loaded stopwords for english
-WARNING:src.core.entity_extractor:spaCy model en_core_web_sm not found. Run: python -m spacy download en_core_web_sm
-   DataMiner initialized with relevance threshold: 0.15
-
-============================================================
-PROCESSING KEYWORDS
-============================================================
-
-================================================================================
- Processing keyword 1/1: 'REGISTER'
-================================================================================
-
-   [1/1] Processing: FW_Snowflake_Certification_Program_Q2_2026_Nomi_20...
- Preview found: ... What’s in it for me? Who can register? How to get started? Genome Wave credit? Industry...
-
-============================================================
-Starting extraction for: data/outlook_emails/snowflake_certification_progra\FW_Snowflake_Certification_Program_Q2_2026_Nomi_20260424_134146.txt
-============================================================
-
-1. Loading document...
-Cleaning and preprocessing...
-  17 sentences
-  318 words
-3. Finding keywords...
-   - Using 1 provided keywords
-
-   Keywords to analyze:
-     1. register
-
-4. Extracting contexts...
-   - 'register': 4 occurrences
-
-5. Scoring relevance...
-   - Kept 0 relevant contexts
-6. Finding named entities...
-   - Found 0 entities
-7. Calculating confidence scores...
-
-   Top confidence keywords:
-
-8. Creating summaries...
-9. Packaging results...
-10. Saving results...
-
-Done! Results saved to:
- outputs/keyword_results/snowflake_certification_progra/email_1_register/results_20260424_134146.json
- outputs/keyword_results/snowflake_certification_progra/email_1_register/report_20260424_134146.txt
- 'register' not found in this email
-
-================================================================================
- SUMMARY FOR KEYWORD: 'REGISTER'
- (Within emails containing: 'snowflake certification program')
-================================================================================
-
-SEARCH STATISTICS:
- Keyword searched: 'register'
- Emails containing 'register': 0
- Total occurrences: 0
- Success rate: 0.0%
-
- No context examples found for 'register'
- Tip: Try searching for a different form of the word (e.g., 'register' instead of 'registration')
-
- No emails found containing 'register'
-
-  SUGGESTIONS:
- 1. Try a different form of the word (e.g., 'register' instead of 'registration')
- 2. Try a partial word (e.g., 'regist' instead of 'registration')
- 3. Check the email content for the exact word
-
- JSON saved: outputs/keyword_results/snowflake_certification_progra/snowflake_certificat_register_20260424_134146.json
-Text saved: outputs/keyword_results/snowflake_certification_progra/snowflake_certificat_register_20260424_134146.txt
-
-============================================================
- ALL KEYWORD EXTRACTIONS COMPLETE!
-============================================================
-
- FINAL SUMMARY:
- Email subject searched: 'snowflake certification program'
- Total emails found: 1
- Total keywords processed: 1
- Results saved to: outputs/keyword_results/snowflake_certification_progra
-
- Generated files:
-
- 'REGISTER':
- JSON: snowflake_certificat_register_20260424_134146.json
- TXT: snowflake_certificat_register_20260424_134146.txt
-
-============================================================
-EXTRACTION COMPLETE!
- All results are in: outputs/keyword_results/snowflake_certification_progra
-============================================================
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\spacy\__main__.py", line 4, in <module>
+    setup_cli()
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\spacy\cli\_util.py", line 78, in setup_cli
+    command(prog_name=COMMAND)
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\click\core.py", line 1485, in __call__
+    return self.main(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\typer\core.py", line 795, in main
+    return _main(
+           ^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\typer\core.py", line 188, in _main
+    rv = self.invoke(ctx)
+         ^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\click\core.py", line 1873, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\click\core.py", line 1269, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\click\core.py", line 824, in invoke
+    return callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\typer\main.py", line 1514, in wrapper
+    return callback(**use_params)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\spacy\cli\download.py", line 53, in download_cli
+    download(model, direct, sdist, url, *ctx.args)
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\spacy\cli\download.py", line 95, in download
+    compatibility = get_compatibility()
+                    ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\spacy\cli\download.py", line 140, in get_compatibility
+    r = requests.get(about.__compatibility__)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\requests\api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\requests\adapters.py", line 675, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /explosion/spacy-models/master/compatibility.json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')))
