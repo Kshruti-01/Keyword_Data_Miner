@@ -102,3 +102,19 @@ Traceback (most recent call last):
   File "C:\Users\850085869\OneDrive - Genpact\Desktop\Project\keyword_data_miner\.venv\Lib\site-packages\requests\adapters.py", line 675, in send
     raise SSLError(e, request=request)
 requests.exceptions.SSLError: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /explosion/spacy-models/master/compatibility.json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')))
+
+
+
+Context 1:
+   ...s below to start your learning journey Genome Wave Upload your certification for wave credits via Helpmate 3 Steps to complete your Learning Journey! Registration SelfPaced Learning Certification Exam Partner portal To begin learning on the Snowflake Partner Network register using your Genpact email and follow...
+
+Context 2:
+   ...ification Exam Partner portal To begin learning on the Snowflake Partner Network register using your Genpact email and follow the SOP here Snowflake Registration Snowflake playbook will guide you how to start your learning journey and create a meaningful impact Snowflake Learning Certification Playbook Regis...
+
+--------------------------------------------------
+COMPLETE SENTENCES CONTAINING THE KEYWORD
+--------------------------------------------------
+
+1. Registration SelfPaced Learning Certification Exam Partner portal To begin learning on the Snowflake Partner Network register using your Genpact email and follow ification Exam Partner portal To begin learning on the Snowflake Partner Network register using your Genpact email and follow the SOP here Snowflake Registration Snowflake playbook will guide you how to start your learning journey and create a meaningful impact Snowflake Learning Certification Playbook Regis
+
+
