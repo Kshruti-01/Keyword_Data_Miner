@@ -53,11 +53,17 @@ def generate_keyword_summary(results, search_keyword, output_folder, total_email
     for result in results:
         keywords = result.get('keywords', {})
         
-        # ONLY look for the searched keyword
+        # Look for exact match OR partial match (for word variations)
         keyword_data = None
         for kw in keywords.keys():
+            # Exact match (case-insensitive)
             if kw.lower() == search_keyword.lower():
                 keyword_data = keywords[kw]
+                break
+            # Partial match (if keyword is part of a longer word)
+            elif search_keyword.lower() in kw.lower():
+                keyword_data = keywords[kw]
+                print(f" Found variation: '{kw}' contains '{search_keyword}'")
                 break
         
         if keyword_data:
@@ -74,7 +80,7 @@ def generate_keyword_summary(results, search_keyword, output_folder, total_email
     # Calculate statistics
     success_rate = (email_count / total_emails * 100) if total_emails > 0 else 0
     
-    print(f"\n SEARCH STATISTICS:")
+    print(f"\nSEARCH STATISTICS:")
     print(f" Keyword searched: '{search_keyword}'")
     print(f" Emails containing '{search_keyword}': {email_count}")
     print(f" Total occurrences: {actual_total_occurrences}")
@@ -84,21 +90,22 @@ def generate_keyword_summary(results, search_keyword, output_folder, total_email
     if all_contexts:
         print(f"\n CONTEXT EXAMPLES (for '{search_keyword}'):")
         for i, ctx in enumerate(all_contexts[:3], 1):
-            context_text = ctx.get('full_context', '')[:150]
+            context_text = ctx.get('full_context', '')[:200]
             context_text = re.sub(r'https?://\S+', '', context_text)
             print(f"\n   {i}. ...{context_text}...")
     else:
         print(f"\n No context examples found for '{search_keyword}'")
+        print(f" Tip: Try searching for a different form of the word (e.g., 'register' instead of 'registration')")
     
     # Show emails
     if email_count > 0:
-        print(f"\n EMAILS CONTAINING '{search_keyword.upper()}':")
+        print(f"\n📧 EMAILS CONTAINING '{search_keyword.upper()}':")
         email_index = 0
         for result in results:
             keywords = result.get('keywords', {})
             keyword_data = None
             for kw in keywords.keys():
-                if kw.lower() == search_keyword.lower():
+                if kw.lower() == search_keyword.lower() or search_keyword.lower() in kw.lower():
                     keyword_data = keywords[kw]
                     break
             
@@ -108,12 +115,25 @@ def generate_keyword_summary(results, search_keyword, output_folder, total_email
                 confidence = int(keyword_data.get('confidence', 0) * 100)
                 occurrences = keyword_data.get('occurrences', 0)
                 
-                print(f"\n {email_index}. {email_meta.get('subject', 'No Subject')[:60]}")
+                # Show which variation was found
+                matched_keyword = None
+                for kw in keywords.keys():
+                    if kw.lower() == search_keyword.lower() or search_keyword.lower() in kw.lower():
+                        matched_keyword = kw
+                        break
+                
+                print(f"\n   {email_index}. {email_meta.get('subject', 'No Subject')[:60]}")
                 print(f" From: {email_meta.get('sender', 'Unknown')}")
                 print(f" Date: {email_meta.get('date', 'Unknown')}")
-                print(f"'{search_keyword}' found: {occurrences} time(s) | Confidence: {confidence}%")
+                if matched_keyword and matched_keyword.lower() != search_keyword.lower():
+                    print(f" Found variation: '{matched_keyword}' (searched for '{search_keyword}')")
+                print(f" '{search_keyword}' occurrences: {occurrences} time(s) | Confidence: {confidence}%")
     else:
         print(f"\n No emails found containing '{search_keyword}'")
+        print(f"\n  SUGGESTIONS:")
+        print(f" 1. Try a different form of the word (e.g., 'register' instead of 'registration')")
+        print(f" 2. Try a partial word (e.g., 'regist' instead of 'registration')")
+        print(f" 3. Check the email content for the exact word")
     
     # Save summary to file
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -172,11 +192,41 @@ def generate_keyword_summary(results, search_keyword, output_folder, total_email
             f.write("-"*40 + "\n")
             for i, summary in enumerate(all_summaries[:2], 1):
                 f.write(f"\n{i}. {summary[:250]}...\n")
+        
+        # Add word variation suggestions
+        if email_count == 0:
+            f.write("\n" + "-"*40 + "\n")
+            f.write("TROUBLESHOOTING TIPS\n")
+            f.write("-"*40 + "\n")
+            f.write("No matches found. Try:\n")
+            f.write(" 1. Different word form (e.g., 'register' instead of 'registration')\n")
+            f.write(" 2. Partial word (e.g., 'regist')\n")
+            f.write(" 3. Check email content for actual wording\n")
     
     print(f"\n JSON saved: {json_file}")
     print(f"Text saved: {txt_file}")
     
     return json_file, txt_file
+
+
+def search_keyword_in_text(text, keyword):
+    """
+    Enhanced search that handles word variations and partial matches.
+    """
+    text_lower = text.lower()
+    keyword_lower = keyword.lower()
+    
+    # Direct word boundary search
+    pattern = r'\b' + re.escape(keyword_lower) + r'\b'
+    direct_matches = len(re.findall(pattern, text_lower))
+    
+    # Partial matches (for variations like 'register' vs 'registration')
+    partial_matches = 0
+    if keyword_lower in text_lower:
+        # Count approximate occurrences
+        partial_matches = text_lower.count(keyword_lower)
+    
+    return max(direct_matches, partial_matches)
 
 
 def main():
@@ -185,7 +235,7 @@ def main():
     print("\n" + "="*60)
     print("OUTLOOK EMAIL KEYWORD MINER")
     print("="*60)
-    print("\n This tool extracts keywords from your Outlook emails.")
+    print("\nThis tool extracts keywords from your Outlook emails.")
     print(" You can either:")
     print(" 1. Type keywords manually at runtime")
     print(" 2. Use predefined keywords from the configuration")
@@ -198,15 +248,15 @@ def main():
     if not connector.outlook:
         print("Could not connect to Outlook.")
         print("\nTroubleshooting:")
-        print("  1. Make sure Outlook is open")
-        print("  2. Check that pywin32 is installed: pip install pywin32")
+        print(" 1. Make sure Outlook is open")
+        print(" 2. Check that pywin32 is installed: pip install pywin32")
         return
     
     print("Connected to Outlook successfully")
     
     # Step 2: Enter email subject to search for
     print("\n" + "="*60)
-    print("STEP 1: Enter email subject to search for")
+    print(" STEP 1: Enter email subject to search for")
     print("="*60)
     subject_filter = input("\nEnter email subject (or partial subject): ").strip()
     
@@ -228,20 +278,19 @@ def main():
     print(f"\n Found {len(emails)} email(s) with subject containing '{subject_filter}'")
     
     if not emails:
-        print("\n   No emails found. Try a different subject or check your inbox.")
+        print("\n No emails found. Try a different subject or check your inbox.")
         return
     
     # Display found emails
     print("\n Emails found:")
     for i, email in enumerate(emails, 1):
-        # Truncate long subjects
         display_subject = email['subject'][:70] + "..." if len(email['subject']) > 70 else email['subject']
-        print(f" {i}. {display_subject}")
+        print(f"{i}. {display_subject}")
         print(f" From: {email['sender_name']} | Date: {email['received_time']}")
     
     # Step 3: Choose keyword input method
     print("\n" + "="*60)
-    print("STEP 2: Choose keyword input method")
+    print("🔍 STEP 2: Choose keyword input method")
     print("="*60)
     print(" [1] Type keywords manually at runtime")
     print(" [2] Use predefined keywords from configuration")
@@ -257,8 +306,8 @@ def main():
         print("\n" + "-"*40)
         print("MANUAL KEYWORD ENTRY")
         print("-"*40)
-        print(" For single keyword: just type it (e.g., service)")
-        print(" For multiple keywords: separate with commas (e.g., service, overhaul, maintenance)")
+        print(" For single keyword: just type it (e.g., registration)")
+        print(" For multiple keywords: separate with commas (e.g., registration, certification, exam)")
         
         keywords_input = input("\nEnter keyword(s): ").strip()
         if not keywords_input:
@@ -273,8 +322,7 @@ def main():
         print("-"*40)
         print(f"Available keywords: {', '.join(PREDEFINED_KEYWORDS)}")
         
-        # Show numbered list for easy selection
-        print("\n Select keywords to search (enter numbers separated by commas):")
+        print("\n   Select keywords to search (enter numbers separated by commas):")
         for i, kw in enumerate(PREDEFINED_KEYWORDS, 1):
             print(f"{i}. {kw}")
         
@@ -315,12 +363,12 @@ def main():
         return
     
     if not keywords_to_search:
-        print("No keywords selected. Exiting.")
+        print(" No keywords selected. Exiting.")
         return
     
     print(f"\n Will search for {len(keywords_to_search)} keyword(s):")
     for kw in keywords_to_search:
-        print(f"{kw}")
+        print(f"      • {kw}")
     
     # Step 4: Save emails to files
     print("\n Saving emails to files...")
@@ -329,7 +377,7 @@ def main():
     os.makedirs(search_folder, exist_ok=True)
     
     saved_files = connector.save_emails_to_files(emails, output_dir=search_folder)
-    print(f" Saved {len(saved_files)} email(s)")
+    print(f"Saved {len(saved_files)} email(s)")
     
     # Step 5: Initialize keyword miner
     print("\n Initializing keyword miner...")
@@ -348,7 +396,7 @@ def main():
     
     for keyword_idx, keyword in enumerate(keywords_to_search, 1):
         print(f"\n{'='*80}")
-        print(f"Processing keyword {keyword_idx}/{len(keywords_to_search)}: '{keyword.upper()}'")
+        print(f" Processing keyword {keyword_idx}/{len(keywords_to_search)}: '{keyword.upper()}'")
         print(f"{'='*80}")
         
         all_results = []
@@ -359,6 +407,20 @@ def main():
             print(f"\n   [{i}/{len(saved_files)}] Processing: {os.path.basename(email_file)[:50]}...")
             
             try:
+                # Read the email content to show preview
+                with open(email_file, 'r', encoding='utf-8') as f:
+                    email_content = f.read()
+                
+                # Quick preview of where the keyword might appear
+                if keyword.lower() in email_content.lower():
+                    # Find a small preview
+                    pos = email_content.lower().find(keyword.lower())
+                    if pos != -1:
+                        preview_start = max(0, pos - 30)
+                        preview_end = min(len(email_content), pos + len(keyword) + 50)
+                        preview = email_content[preview_start:preview_end].replace('\n', ' ')
+                        print(f" Preview found: ...{preview}...")
+                
                 # Mine ONLY for this specific keyword
                 results = miner.mine_document(
                     document_path=email_file,
@@ -366,16 +428,24 @@ def main():
                     output_dir=f"{results_folder}/email_{i}_{keyword}"
                 )
                 
-                # Check if keyword found
-                keyword_found = results.get('keywords', {}).get(keyword, None)
+                # Check if keyword found (exact or partial)
+                keyword_found = None
+                for kw in results.get('keywords', {}).keys():
+                    if kw.lower() == keyword.lower():
+                        keyword_found = results['keywords'][kw]
+                        break
+                    elif keyword.lower() in kw.lower():
+                        keyword_found = results['keywords'][kw]
+                        print(f" Found variation: '{kw}'")
+                        break
                 
                 if keyword_found:
                     emails_with_keyword += 1
                     occurrences = keyword_found.get('occurrences', 0)
                     total_occurrences += occurrences
-                    print(f" Found '{keyword}' {occurrences} time(s)")
+                    print(f"Found '{keyword}' {occurrences} time(s)")
                 else:
-                    print(f"'{keyword}' not found in this email")
+                    print(f" '{keyword}' not found in this email")
                 
                 # Add metadata
                 results['email_metadata'] = {
@@ -405,7 +475,7 @@ def main():
     
     # Step 7: Final summary
     print("\n" + "="*60)
-    print("ALL KEYWORD EXTRACTIONS COMPLETE!")
+    print(" ALL KEYWORD EXTRACTIONS COMPLETE!")
     print("="*60)
     
     print("\n FINAL SUMMARY:")
